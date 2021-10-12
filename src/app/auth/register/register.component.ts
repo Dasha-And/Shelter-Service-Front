@@ -24,10 +24,10 @@ export class RegisterComponent implements OnInit {
     this.regForm = this.fb.group({
       name: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      mobileNumber: ['', [Validators.required, Validators.pattern(new RegExp("[0-9 ]{12}"))]],
+      phone: ['', [Validators.required, Validators.pattern(new RegExp("[0-9 ]{12}"))]],
       email: ['', [Validators.required, Validators.pattern("[A-Za-z0-0]*@gmail.com")]],
       password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9@!_]{6,}")]],
-      admin: []
+      role: []
     })
   }
   register() {
