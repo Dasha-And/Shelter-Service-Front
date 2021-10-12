@@ -1,0 +1,94 @@
+<div class="register">
+   <div class="container-fluid">
+      <div class="row">
+         <!-- <div class="col-12"> -->
+
+
+         <div id="CardStyle" class="card justify-content-center">
+
+            <div>
+               <button class="btn" routerLink="/login" [class.btn-outline-primary]="flag" type="button"
+                  style="width: 50%;" (click)="apply('login')">Увійти</button>
+               <button class="btn" routerLink="/register" type="button" style="width: 50%;" (click)="apply('reg')"
+                  disabled>Реєстрація</button>
+            </div>
+
+            <div class="card-body">
+               <div *ngIf="flag">
+                  <form #userForm="ngForm" [formGroup]="regForm" (ngSubmit)="register()">
+                     <div class="form-group">
+
+                        <label for="name" class="fas fa-user"></label>
+                        <input type="text" placeholder="Введіть ім'я" formControlName="name" ngModel>
+                        <span class="text-danger" *ngIf="regForm.controls.name.errors && regForm.controls.name.touched">
+                           <br>Ім'я обов'язкове
+                        </span>
+                     </div>
+
+
+                     <div class="form-group">
+
+                        <label for="lastName" class="fas fa-user"></label>
+                        <input type="text" placeholder="Введіть фамілію" formControlName="lastName" ngModel>
+                        <span class="text-danger" *ngIf="regForm.controls.lastName.errors && regForm.controls.lastName.touched">
+                           <br>Фамілія обов'язкова
+                        </span>
+                     </div>
+
+
+                     <div class="form-group">
+
+                        <label for="mobileNumber" class="fas fa-mobile"></label>
+                        <input type="tel" name="mobile" placeholder="Номер мобільного телефону"
+                           formControlName="mobileNumber">
+                        <span class="text-danger"
+                           *ngIf="regForm.controls.mobileNumber.errors && regForm.controls.mobileNumber.touched">
+                           <br>Недійсний номер мобільного телефону
+                        </span>
+                     </div>
+                     <div class="form-group">
+                        <label for="email" class='fas fa-envelope'></label>
+                        <input type="email" placeholder="Адреса електронної пошти " formControlName="email" ngModel>
+                        <span class="text-danger"
+                           *ngIf="regForm.controls.email.errors && regForm.controls.email.touched">
+                           <br>Невірна адреса електронної пошти</span>
+                     </div>
+
+                     <div class="form-group">
+                        <label for="password" class="fas fa-lock"></label>
+                        <input type="password" placeholder="Пароль " formControlName="password" ngModel>
+                        <span class="text-danger"
+                           *ngIf="regForm.controls.password.errors && regForm.controls.password.touched"><br>
+                           Необхідний мінімум 8-значний пароль
+                        </span>
+                     </div>
+                     <div class="form-group">
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                              formControlName="admin" ngModel>
+                           <label class="form-check-label" for="flexCheckDefault">
+                              Я є адміністратором приюту
+                           </label>
+                        </div>
+                     </div>
+                     <div class="text-center">
+                        <button id="submitButton" type="submit" class="btn btn-primary"
+                           [disabled]="!regForm.valid">Зареєструватись</button>
+                     </div>
+
+
+                     <div class="text-center text-success" *ngIf="successMessage">
+                        {{regForm.value.email}} {{successMessage}}
+
+                     </div>
+
+                  </form>
+               </div>
+            </div>
+
+         </div>
+
+      </div>
+   </div>
+   <!-- </div> -->
+</div>
