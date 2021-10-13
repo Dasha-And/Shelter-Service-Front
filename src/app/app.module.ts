@@ -9,6 +9,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { RouterModule, Routes } from '@angular/router';
+import {HttpClientModule} from "@angular/common/http";
 
 
 const appRoutes : Routes = [
@@ -28,6 +29,7 @@ const appRoutes : Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,

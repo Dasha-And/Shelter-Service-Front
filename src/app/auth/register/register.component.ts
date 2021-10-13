@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {HttpErrorResponse} from "@angular/common/http";
+import {UserService} from "../../service/user.service";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-register',
@@ -17,7 +20,7 @@ export class RegisterComponent implements OnInit {
   successMessage: string = " ";
   regForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -31,7 +34,19 @@ export class RegisterComponent implements OnInit {
     })
   }
   register() {
-    this.successMessage = "Successfully register In ..."
+    // @ts-ignore
+    //document.getElementById('add-sport-form').click();
+    this.userService.addUser(this.regForm.value).subscribe(
+      (response: User) => {
+        console.log(response);
+        this.regForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        this.regForm.reset();
+      }
+    );
+    alert("Ви успішно зареєстровані! Тепер увійдіть до свого акаунту");
     console.log(this.regForm)
   }
 
