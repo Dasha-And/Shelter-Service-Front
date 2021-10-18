@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../model/user';
+import {UserLoginForm} from "../model/user.login.form";
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +27,9 @@ export class UserService {
     return this.http.post<User>(`${this.apiServerUrl}/registration`, user);
   }
 
-  public updateUser(user : User): Observable<User> {
-    return this.http.put<User>(`${this.apiServerUrl}/updateUser`, user);
+  public login(user : UserLoginForm): Observable<User> {
+    // @ts-ignore
+    return this.http.post<UserLoginForm>(`${this.apiServerUrl}/login`, user);
   }
 
   public deleteUser(userId : number): Observable<void> {

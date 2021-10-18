@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {UserService} from "../../service/user.service";
+import {User} from "../../model/user";
+import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +20,7 @@ export class LoginComponent implements OnInit {
   successMessage: string = " ";
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -25,6 +29,22 @@ export class LoginComponent implements OnInit {
     })
   }
   login() {
+    this.userService.login(this.loginForm.value).subscribe(
+      (response: User) => {
+        console.log(response);
+        this.loginForm.reset();
+        if (response.role == 'user') {
+          alert("Юзер");
+        } else if (response.role == 'admin') {
+          this.router.navigate(['/adminPage']);
+        }
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        this.loginForm.reset();
+      }
+    );
+
     this.successMessage = "Successfully Loggined In ..."
   }
 }
