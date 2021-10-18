@@ -9,7 +9,10 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminFormRegComponent} from "./Users/admin/adminFormReg/admin-form-reg/admin-form-reg.component";
+import { AdminComponent} from "./Users/admin/admin.component";
 import {HttpClientModule} from "@angular/common/http";
+import {UserComponent} from "./Users/user/user.component";
 
 
 const appRoutes : Routes = [
@@ -25,7 +28,11 @@ const appRoutes : Routes = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ContactsComponent
+    ContactsComponent,
+    AdminFormRegComponent,
+    AdminComponent,
+    UserComponent
+
   ],
   imports: [
     BrowserModule,
