@@ -20,6 +20,9 @@ const appRoutes : Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'login',component: LoginComponent},
   {path: 'regist',component: RegisterComponent},
+  { path: 'adminPage', component: AdminComponent },
+  { path: 'userPage', component: UserComponent },
+  { path: 'adminFormReg', component: AdminFormRegComponent },
 ]
 
 @NgModule({
