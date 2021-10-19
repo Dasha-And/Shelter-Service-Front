@@ -16,11 +16,11 @@ export class AdminFormRegComponent implements OnInit {
   ngOnInit(): void {
     this.adminRegForm = this.fb.group({
       name: ['', [Validators.required]],
-      longtitude: ['', Validators.required],
-      latitude: ['', Validators.required],
+      longitude: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      latitude: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       phone: ['', [Validators.required, Validators.pattern(new RegExp("[0-9 ]{12}"))]],
-      email: ['', [Validators.required, Validators.pattern("[A-Za-z0-0]*@gmail.com")]],
-      siteUrl: ['', Validators.required, Validators.pattern("")]
+      email: ['', [Validators.required, Validators.pattern(new RegExp("\\w+@\\w+\\.\\w+"))]],
+      siteUrl: ['', [Validators.required, Validators.pattern(new RegExp("https?://.+"))]],
     })
   }
   regForm() {

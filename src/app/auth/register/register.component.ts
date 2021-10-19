@@ -25,10 +25,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.regForm = this.fb.group({
-      name: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.pattern("[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}")]],
+      lastName: ['', [Validators.required ,Validators.pattern("[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}") ]],
       phone: ['', [Validators.required, Validators.pattern(new RegExp("[0-9 ]{12}"))]],
-      email: ['', [Validators.required, Validators.pattern("[A-Za-z0-0]*@gmail.com")]],
+      email: ['', [Validators.required, Validators.pattern(new RegExp("\\w+@\\w+\\.\\w+"))]],
       password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9@!_]{6,}")]],
       role: []
     })

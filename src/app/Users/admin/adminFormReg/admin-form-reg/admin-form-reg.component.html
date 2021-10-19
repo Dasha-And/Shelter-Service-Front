@@ -22,7 +22,7 @@
                            ngModel>
                         <span class="text-danger"
                            *ngIf="adminRegForm.controls.longitude.errors && adminRegForm.controls.longitude.touched">
-                           <br>Координати довготи обов'язкові
+                           <br>Координати довготи обов'язкові. Тільки цифри
                         </span>
                      </div>
                      <div class="form-group">
@@ -30,7 +30,7 @@
                         <input type="text" placeholder="Введіть координaти широти" formControlName="latitude" ngModel>
                         <span class="text-danger"
                            *ngIf="adminRegForm.controls.latitude.errors && adminRegForm.controls.latitude.touched">
-                           <br>Координати широти обов'язкові
+                           <br>Координати широти обов'язкові. Тільки цифри
                         </span>
                      </div>
 
@@ -39,7 +39,7 @@
                         <input type="phone" placeholder="Номер мобільного телефону" formControlName="phone" ngModel>
                         <span class="text-danger"
                            *ngIf="adminRegForm.controls.phone.errors && adminRegForm.controls.phone.touched">
-                           <br>Недійсний номер мобільного телефону
+                           <br>Недійсний номер мобільного телефону. Код країни обов'язковий
                         </span>
                      </div>
 
