@@ -1,0 +1,80 @@
+<div id="appContainer">
+   <app-header-admin></app-header-admin>
+   <div class="adminRegister">
+      <h2>Дані про Вас</h2>
+      <div class="register">
+         <div class="container-fluid">
+            <div class="row">
+               <div id="CardStyle" class="card justify-content-center">
+                  <div>
+                     <button class="btn" routerLink="/changeAccount" type="button" style="width: 50%;"
+                        (click)="apply('changeShelterAccounter')" disabled>Змінити дані Адміністратора</button>
+                     <button class="btn" routerLink="/changeShelter" [class.btn-outline-primary]="flag" type="button"
+                        style="width: 50%;" (click)="apply('changeAdminData')">Змінити дані про
+                        притулок</button>
+                  </div>
+
+                  <div class="card-body">
+                     <div *ngIf="flag">
+                        <form #userForm="ngForm" [formGroup]="accountAdminData" (ngSubmit)="change()">
+                           <div class="form-group">
+
+                              <label for="name" class="fas fa-user"></label>
+                              <input type="text" placeholder="Введіть ім'я" formControlName="name" ngModel>
+                              <span class="text-danger"
+                                 *ngIf="accountAdminData.controls.name.errors && accountAdminData.controls.name.touched">
+                                 <br>Ім'я обов'язкове
+                              </span>
+                           </div>
+
+                           <div class="form-group">
+
+                              <label for="lastName" class="fas fa-user"></label>
+                              <input id="lastName" type="text" placeholder="Введіть прізвище" formControlName="lastName"
+                                 ngModel>
+                              <span class="text-danger"
+                                 *ngIf="accountAdminData.controls.lastName.errors && accountAdminData.controls.lastName.touched">
+                                 <br>Прізвище обов'язкове
+                              </span>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="phone" class="fas fa-mobile"></label>
+                              <input type="phone" placeholder="Номер мобільного телефону" formControlName="phone"
+                                 ngModel>
+                              <span class="text-danger"
+                                 *ngIf="accountAdminData.controls.phone.errors && accountAdminData.controls.phone.touched">
+                                 <br>Недійсний номер мобільного телефону
+                              </span>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="email" class='fas fa-envelope'></label>
+                              <input type="email" placeholder="Адреса електронної пошти " formControlName="email"
+                                 ngModel>
+                              <span class="text-danger"
+                                 *ngIf="accountAdminData.controls.email.errors && accountAdminData.controls.email.touched">
+                                 <br>Невірна адреса електронної пошти</span>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="password" class="fas fa-lock"></label>
+                              <input type="password" placeholder="Пароль " formControlName="password" ngModel>
+                              <span class="text-danger"
+                                 *ngIf="accountAdminData.controls.password.errors && accountAdminData.controls.password.touched"><br>
+                                 Необхідний мінімум 8-значний пароль
+                              </span>
+                           </div>
+                           <div class="text-center">
+                              <button id="submitButton" type="submit" class="btn btn-primary"
+                                 routerLink="/account">Зберегти</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,23 @@
+#appContainer{
+   max-width: 100%;
+   width: 100%;
+   overflow-x: hidden;
+   background: transparent url(../../../img/bg1.png) repeat; background-attachment: fixed !important;
+   /* background-image: linear-gradient(to right,#98dbc6, #5bc8ac); */
+}
+
+#CardStyle{
+   background-color: rgba(255, 255, 255,0.4);
+   box-shadow: 5px 3px 5px 5px gray;
+}
+.navbar-brand{
+   font-family: 'Montserrat Alternates', sans-serif;
+   font-size: 30px;
+   font-weight: 500;
+
+}
+.d-flex a{
+   font-family: 'Montserrat Alternates', sans-serif;
+   font-size: 24px;
+   font-weight: 400;
+}
