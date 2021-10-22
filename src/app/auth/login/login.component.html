@@ -1,54 +1,57 @@
-<div class="login">
-   <div class="container-fluid">
-      <div class="row">
-         <div id="CardStyle" class="card justify-content-center">
+<div id="appContainer">
+   <app-header-unreg></app-header-unreg>
+   <div class="login">
+      <div class="container-fluid">
+         <div class="row">
+            <div id="CardStyle" class="card justify-content-center">
 
-            <div>
-               <button class="btn" routerLink="/login" type="button" style="width: 50%;" (click)="apply('login')"
-                  disabled>Увійти</button>
-               <button class="btn" routerLink="/regist" [class.btn-outline-primary]="flag" type="button"
-                  style="width: 50%;" (click)="apply('reg')">Реєстрація</button>
-            </div>
-
-            <div class="card-body">
-               <div *ngIf="flag">
-                  <form [formGroup]="loginForm" (ngSubmit)="login()">
-
-
-                     <div class="form-group">
-                        <label for="email" class='fas fa-envelope'></label>
-                        <input type="email" placeholder="Адреса електронної пошти " formControlName="email">
-                        <span class="text-danger"
-                           *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
-                           <br>Невірна адреса електронної пошти</span>
-                     </div>
-
-                     <div class="form-group">
-                        <label for="password" class="fas fa-lock"></label>
-                        <input type="password" placeholder="Пароль " formControlName="password">
-                        <span class="text-danger"
-                           *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched">
-                           <br>Недійсний пароль
-                        </span>
-                     </div>
-
-                     <div class="text-center">
-                        <button id="submitButton" type="submit" class="btn btn-primary"
-                           [disabled]="!loginForm.valid">Увійти</button>
-                     </div>
-
-
-                     <div class="text-center text-success" *ngIf="successMessage">{{successMessage}}
-
-                     </div>
-
-                  </form>
+               <div>
+                  <button class="btn" routerLink="/login" type="button" style="width: 50%;" (click)="apply('login')"
+                     disabled>Увійти</button>
+                  <button class="btn" routerLink="/regist" [class.btn-outline-primary]="flag" type="button"
+                     style="width: 50%;" (click)="apply('reg')">Реєстрація</button>
                </div>
+
+               <div class="card-body">
+                  <div *ngIf="flag">
+                     <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+
+                        <div class="form-group">
+                           <label for="email" class='fas fa-envelope'></label>
+                           <input type="email" placeholder="Адреса електронної пошти " formControlName="email">
+                           <span class="text-danger"
+                              *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
+                              <br>Невірна адреса електронної пошти</span>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="password" class="fas fa-lock"></label>
+                           <input type="password" placeholder="Пароль " formControlName="password">
+                           <span class="text-danger"
+                              *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched">
+                              <br>Недійсний пароль
+                           </span>
+                        </div>
+
+                        <div class="text-center">
+                           <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="!loginForm.valid"
+                              routerLink="/adminPage">Увійти</button>
+                        </div>
+
+
+                        <div class="text-center text-success" *ngIf="successMessage">{{successMessage}}
+
+                        </div>
+
+                     </form>
+                  </div>
+               </div>
+
             </div>
 
          </div>
-
       </div>
+      <!-- </div> -->
    </div>
-   <!-- </div> -->
 </div>

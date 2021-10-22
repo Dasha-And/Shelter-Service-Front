@@ -1,0 +1,16 @@
+#appContainer{
+   height: 90vh;
+   width: 100%;
+   max-width: 100%;
+   bottom: 80px;
+   overflow-x: hidden;
+   background: transparent url(../img/bg1.png) repeat; background-attachment: fixed !important;
+}
+
+.navbar-brand{
+   font-size: 28px;
+}
+.nav-item a{
+   font-size: 20px;
+}
+
