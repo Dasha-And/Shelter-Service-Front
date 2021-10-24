@@ -24,7 +24,22 @@
       height: 450px; /* Высота */
       border-radius: 10px;
 }
-
+.infobox {
+  background-color: #fff;
+  margin: 60px auto;
+  max-width: 600px;
+  /* padding: 90px 70px;
+  background:#fff; */
+  color: #000;
+  position: relative;
+  text-shadow: none;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+  border: 1px solid #7a7b7e; /* Параметры рамки */
+  width: 550px; /* Ширина кнопки */
+  height: 620px; /* Высота */
+  border-radius: 10px;
+  text-align: center;
+}
 .btn{
    font-family: 'Montserrat Alternates', sans-serif;
    font-size: 17px;
@@ -45,6 +60,17 @@
    padding: 5px 10px ;
    font-size: 20px;
    font-family: 'Montserrat Alternates', sans-serif;
+}
+.data{
+  position: relative;
+  top: -30px;
+  padding: 5px 10px ;
+  font-size: 20px;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+.dataTitle{
+  font-size: 15px;
+  color: #7a7b7e;
 }
 .num{
    -moz-appearance: textfield;
