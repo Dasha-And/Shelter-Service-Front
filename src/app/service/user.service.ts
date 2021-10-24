@@ -1,4 +1,4 @@
-import {HttpClient, HttpEvent, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -18,8 +18,10 @@ export class UserService {
     return this.http.get<User[]>(`${this.apiServerUrl}/users`);
   }
 
-  public getUserById(userId : number): Observable<User> {
-    return this.http.get<User>(`${this.apiServerUrl}/user/${userId}`);
+  public getUserByEmail(userId : string): Observable<User> {
+    let params = new HttpParams()
+      .set('userId', userId);
+    return this.http.get<User>(`${this.apiServerUrl}/user`, {params: params});
   }
 
   public addUser(user : User): Observable<User> {
