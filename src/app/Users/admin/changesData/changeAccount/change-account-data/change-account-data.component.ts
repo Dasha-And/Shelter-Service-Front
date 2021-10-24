@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Shelter} from "../../../../../model/shelter";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ShelterService} from "../../../../../service/shelter.service";
+import {UserService} from "../../../../../service/user.service";
+import {User} from "../../../../../model/user";
 
 @Component({
   selector: 'app-change-account-data',
@@ -8,7 +13,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ChangeAccountDataComponent implements OnInit {
   accountAdminData!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  editUser : User | undefined;
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private userService: UserService, private router: Router) { }
   flag: boolean = true;
 
 
@@ -23,9 +29,21 @@ export class ChangeAccountDataComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern(new RegExp("\\w+@\\w+\\.\\w+"))]],
       password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9@!_]{6,}")]],
     })
+    this.route.queryParams.subscribe(params => {
+      const userId = params['userId'];
+
+    });
   }
-  change() {
+  change(): void {
 
   }
 
+  changeShelter(): void {
+    this.route.queryParams.subscribe(params => {
+        const shelterId = params['shelterId'];
+        const userId = params['userId'];
+        this.router.navigate(['/changeShelter/:shelterId, userId'], {queryParams: {shelterId: shelterId, userId: userId}});
+      }
+    )
+  }
 }
