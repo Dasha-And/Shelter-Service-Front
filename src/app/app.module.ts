@@ -27,13 +27,13 @@ const appRoutes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'regist', component: RegisterComponent },
-  { path: 'adminPage', component: AdminComponent },
+  { path: 'adminPage/:email', component: AdminComponent },
   { path: 'userPage', component: UserComponent },
-  { path: 'adminFormReg', component: AdminFormRegComponent },
+  { path: 'adminFormReg/:email', component: AdminFormRegComponent },
   { path: 'shelter', component: ShelterComponent },
-  { path: 'account', component: AccountAdminComponent },
-  { path: 'changeAccount', component: ChangeAccountDataComponent},
-  { path: 'changeShelter', component: ChangeShelterDataComponent },
+  { path: 'account/:userId, shelterId', component: AccountAdminComponent },
+  { path: 'changeAccount/:shelterId, userId', component: ChangeAccountDataComponent},
+  { path: 'changeShelter/:shelterId, userId', component: ChangeShelterDataComponent },
 
 ]
 
