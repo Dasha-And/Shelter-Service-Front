@@ -36,7 +36,11 @@ export class LoginComponent implements OnInit {
         if (response.role == 'user') {
           alert("Юзер");
         } else if (response.role == 'admin') {
-          this.router.navigate(['/adminPage']);
+          if (response.shelterId == null) {
+            this.router.navigate(['/adminPage/:email'], {queryParams: {email: response.email}});
+          } else{
+            this.router.navigate(['/account/:userId, shelterId'], { queryParams: { shelterId: response.shelterId, userId : response.email } });
+          }
         }
       },
       (error: HttpErrorResponse) => {
