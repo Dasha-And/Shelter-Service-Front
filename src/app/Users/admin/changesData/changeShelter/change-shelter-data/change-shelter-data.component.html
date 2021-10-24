@@ -7,8 +7,8 @@
             <div class="row">
                <div id="CardStyle" class="card justify-content-center">
                   <div>
-                     <button class="btn" routerLink="/changeAccount" [class.btn-outline-primary]="flag" type="button"
-                        style="width: 50%;" (click)="apply('changeShelterAccounter')">Змінити дані
+                     <button class="btn" [class.btn-outline-primary]="flag" type="button"
+                        style="width: 50%;" (click)="apply('changeShelterAccounter'); goToChangeAccount()">Змінити дані
                         Адміністратора</button>
                      <button class="btn" routerLink="/changeShelter" type="button" style="width: 50%;"
                         (click)="apply('changeAdminData')" disabled>Змінити дані про
@@ -17,11 +17,11 @@
 
                   <div class="card-body">
                      <div *ngIf="flag">
-                        <form #userForm="ngForm" [formGroup]="accountShelterChange" (ngSubmit)="change()">
+                        <form #userForm="ngForm" [formGroup]="accountShelterChange" (ngSubmit)="changeShelter()">
                            <div class="form-group">
 
                               <label for="name" class="fas fa-hotel"></label>
-                              <input type="text" placeholder="Введіть назву притулку" formControlName="name" ngModel>
+                              <input id="name" type="text" placeholder="Введіть назву притулку" formControlName="name" ngModel="{{editShelter?.name}}">
                               <span class="text-danger"
                                  *ngIf="accountShelterChange.controls.name.errors && accountShelterChange.controls.name.touched">
                                  <br>Назва притулку обов'язкова
@@ -29,18 +29,18 @@
                            </div>
 
                            <div class="form-group">
-                              <label for="longtitude" class="fas fa-map-marked-alt"></label>
-                              <input type="text" placeholder="Введіть координaти довготи" formControlName="longtitude"
-                                 class="num" ngModel>
+                              <label  for="longitude" class="fas fa-map-marked-alt"></label>
+                              <input id="longitude" type="text" placeholder="Введіть координaти довготи" formControlName="longitude"
+                                 class="num" ngModel="{{editShelter?.longitude}}">
                               <span class="text-danger"
-                                 *ngIf="accountShelterChange.controls.longtitude.errors && accountShelterChange.controls.longtitude.touched">
+                                 *ngIf="accountShelterChange.controls.longitude.errors && accountShelterChange.controls.longitude.touched">
                                  <br>Координати довготи обов'язкові. Тільки цифри
                               </span>
                            </div>
                            <div class="form-group">
                               <label for="latitude" class="fas fa-map-marked-alt"></label>
-                              <input type="text" placeholder="Введіть координaти широти" formControlName="latitude"
-                                 ngModel class="num">
+                              <input id="latitude" type="text" placeholder="Введіть координaти широти" formControlName="latitude"
+                                 ngModel="{{editShelter?.latitude}}" class="num">
                               <span class="text-danger"
                                  *ngIf="accountShelterChange.controls.latitude.errors && accountShelterChange.controls.latitude.touched">
                                  <br>Координати широти обов'язкові.
@@ -49,8 +49,8 @@
 
                            <div class="form-group">
                               <label for="phone" class="fas fa-mobile"></label>
-                              <input type="phone" placeholder="Номер мобільного телефону" formControlName="phone"
-                                 ngModel>
+                              <input id="phone" type="phone" placeholder="Номер мобільного телефону" formControlName="phone"
+                                 ngModel="{{editShelter?.phone}}">
                               <span class="text-danger"
                                  *ngIf="accountShelterChange.controls.phone.errors && accountShelterChange.controls.phone.touched">
                                  <br>Недійсний номер мобільного телефону
@@ -59,8 +59,8 @@
 
                            <div class="form-group">
                               <label for="email" class='fas fa-envelope'></label>
-                              <input type="email" placeholder="Адреса електронної пошти " formControlName="email"
-                                 ngModel>
+                              <input id="email" type="email" placeholder="Адреса електронної пошти " formControlName="email"
+                                 ngModel="{{editShelter?.email}}">
                               <span class="text-danger"
                                  *ngIf="accountShelterChange.controls.email.errors && accountShelterChange.controls.email.touched">
                                  <br>Невірна адреса електронної пошти</span>
@@ -68,8 +68,8 @@
 
                            <div class="form-group">
                               <label for="siteUrl" class="fas fa-link"></label>
-                              <input type="text" placeholder="Введіть посилання на сайт притулку"
-                                 formControlName="siteUrl" ngModel>
+                              <input id="siteUrl" type="text" placeholder="Введіть посилання на сайт притулку"
+                                 formControlName="siteUrl" ngModel="{{editShelter?.siteUrl}}">
                               <span class="text-danger"
                                  *ngIf="accountShelterChange.controls.siteUrl.errors && accountShelterChange.controls.siteUrl.touched"><br>
                                  Посилання на сайт обов'язкове
