@@ -19,7 +19,7 @@
 
                         <div class="form-group">
                            <label for="email" class='fas fa-envelope'></label>
-                           <input type="email" placeholder="Адреса електронної пошти " formControlName="email">
+                           <input id="email" type="email" placeholder="Адреса електронної пошти " formControlName="email">
                            <span class="text-danger"
                               *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
                               <br>Невірна адреса електронної пошти</span>
@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                            <label for="password" class="fas fa-lock"></label>
-                           <input type="password" placeholder="Пароль " formControlName="password">
+                           <input id="password" type="password" placeholder="Пароль " formControlName="password">
                            <span class="text-danger"
                               *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched">
                               <br>Недійсний пароль
@@ -39,9 +39,9 @@
                         </div>
 
 
-                        <div class="text-center text-success" *ngIf="successMessage">{{successMessage}}
+<!--                        <div class="text-center text-success" *ngIf="successMessage">{{successMessage}}-->
 
-                        </div>
+<!--                        </div>-->
 
                      </form>
                   </div>

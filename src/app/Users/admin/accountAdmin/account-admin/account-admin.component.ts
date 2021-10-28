@@ -30,7 +30,7 @@ export class AccountAdminComponent implements OnInit {
           alert(error.message);
         }
       );
-      this.userService.getUserByEmail(userId).subscribe(
+      this.userService.getUserById(userId).subscribe(
         (response : User) => {
           this.user = response;
         },

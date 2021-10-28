@@ -1,9 +1,10 @@
 export interface User {
+    id:number;
     name:string;
-    lastName:string;
+    surname:string;
     phone:string;
     email:string;
     password:string;
     role:string;
-    shelterId:string;
+    shelterId:number;
 }

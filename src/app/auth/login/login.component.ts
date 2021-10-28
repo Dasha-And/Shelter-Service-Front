@@ -36,15 +36,16 @@ export class LoginComponent implements OnInit {
         if (response.role == 'user') {
           alert("Юзер");
         } else if (response.role == 'admin') {
-          if (response.shelterId == null) {
-            this.router.navigate(['/adminPage/:email'], {queryParams: {email: response.email}});
+          if (response.shelterId == null || response.shelterId == 0) {
+            this.router.navigate(['/adminPage/:userId'], {queryParams: {userId: response.id}});
           } else{
-            this.router.navigate(['/account/:userId, shelterId'], { queryParams: { shelterId: response.shelterId, userId : response.email } });
+            this.router.navigate(['/account/:userId, shelterId'], { queryParams: { shelterId: response.shelterId, userId : response.id } });
           }
         }
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        alert(error.error);
+        console.log(error.error)
         this.loginForm.reset();
       }
     );

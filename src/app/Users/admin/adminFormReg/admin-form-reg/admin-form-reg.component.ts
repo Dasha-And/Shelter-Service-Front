@@ -31,8 +31,8 @@ export class AdminFormRegComponent implements OnInit {
   }
   regForm() {
     this.route.queryParams.subscribe(params => {
-      const email = params['email'];
-      this.shelterService.addShelter(this.adminRegForm.value, email).subscribe(
+      const userId = params['userId'];
+      this.shelterService.addShelter(this.adminRegForm.value, userId).subscribe(
         (response: Shelter) => {
           console.log(response);
           this.adminRegForm.reset();
@@ -47,13 +47,13 @@ export class AdminFormRegComponent implements OnInit {
   }
   getShelterId() {
     this.route.queryParams.subscribe(params => {
-      const email = params['email'];
+      const userId = params['userId'];
       let user: User;
-      this.userService.getUserByEmail(email).subscribe(
+      this.userService.getUserById(userId).subscribe(
         (response: User) => {
           user = response;
           console.log(user);
-          this.router.navigate(['account/:userId, shelterId'], {queryParams: {userId: email, shelterId: user.shelterId}})
+          this.router.navigate(['account/:userId, shelterId'], {queryParams: {userId: userId, shelterId: user.shelterId}})
         }
       )
     });

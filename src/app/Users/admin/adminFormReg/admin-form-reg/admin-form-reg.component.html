@@ -33,7 +33,7 @@
                               class="num">
                            <span class="text-danger"
                               *ngIf="adminRegForm.controls.latitude.errors && adminRegForm.controls.latitude.touched">
-                              <br>Координати широти обов'язкові.
+                              <br>Координати широти обов'язкові. Тільки цифри
                            </span>
                         </div>
 
@@ -68,9 +68,9 @@
                            <button id="submitButton" type="submit" class="btn btn-primary"
                               [disabled]="!adminRegForm.valid">Зареєструвати
                               притулок</button>
-                          <button (click)="getShelterId()" id="submit" type="submit" class="btn btn-primary">Увійти</button>
                         </div>
                      </form>
+                    <button (click)="getShelterId()" class="btn btn-primary">Увійти</button>
                   </div>
                </div>
             </div>

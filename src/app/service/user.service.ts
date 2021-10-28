@@ -18,7 +18,7 @@ export class UserService {
     return this.http.get<User[]>(`${this.apiServerUrl}/users`);
   }
 
-  public getUserByEmail(userId : string): Observable<User> {
+  public getUserById(userId : number): Observable<User> {
     let params = new HttpParams()
       .set('userId', userId);
     return this.http.get<User>(`${this.apiServerUrl}/user`, {params: params});
@@ -34,6 +34,11 @@ export class UserService {
     return this.http.post<UserLoginForm>(`${this.apiServerUrl}/login`, user);
   }
 
+  public updateUser(user : User, id : number): Observable<User> {
+    let params = new HttpParams()
+      .set('id', id);
+    return this.http.put<User>(`${this.apiServerUrl}/update_user`, user, {params: params});
+  }
   public deleteUser(userId : number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/deleteUser/${userId}`);
   }

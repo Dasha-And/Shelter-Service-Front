@@ -94,3 +94,10 @@ form{
 .nav-item a{
    font-size: 20px;
 }
+.hide {
+  position: absolute;
+  opacity: 0;
+  top: 410px;
+  right: 145px;
+  width: 310px;
+}

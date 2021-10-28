@@ -20,28 +20,28 @@
                            <div class="form-group">
 
                               <label for="name" class="fas fa-user"></label>
-                              <input type="text" placeholder="Введіть ім'я" formControlName="name" ngModel>
+                              <input id="name" type="text" placeholder="Введіть ім'я" formControlName="name" ngModel="{{editUser?.name}}">
                               <span class="text-danger"
                                  *ngIf="accountAdminData.controls.name.errors && accountAdminData.controls.name.touched">
-                                 <br>Ім'я обов'язкове
+                                 <br>Ім'я обов'язкове та не повинно містити недопустимі значення
                               </span>
                            </div>
 
                            <div class="form-group">
 
-                              <label for="lastName" class="fas fa-user"></label>
-                              <input id="lastName" type="text" placeholder="Введіть прізвище" formControlName="lastName"
-                                 ngModel>
+                              <label for="surname" class="fas fa-user"></label>
+                              <input id="surname" type="text" placeholder="Введіть прізвище" formControlName="surname"
+                                 ngModel="{{editUser?.surname}}">
                               <span class="text-danger"
-                                 *ngIf="accountAdminData.controls.lastName.errors && accountAdminData.controls.lastName.touched">
-                                 <br>Прізвище обов'язкове
+                                 *ngIf="accountAdminData.controls.surname.errors && accountAdminData.controls.surname.touched">
+                                 <br>Прізвище обов'язкове та не повинно містити недопустимі значення
                               </span>
                            </div>
 
                            <div class="form-group">
                               <label for="phone" class="fas fa-mobile"></label>
-                              <input type="phone" placeholder="Номер мобільного телефону" formControlName="phone"
-                                 ngModel>
+                              <input id="phone" type="phone" placeholder="Номер мобільного телефону" formControlName="phone"
+                                 ngModel="{{editUser?.phone}}">
                               <span class="text-danger"
                                  *ngIf="accountAdminData.controls.phone.errors && accountAdminData.controls.phone.touched">
                                  <br>Недійсний номер мобільного телефону
@@ -50,24 +50,35 @@
 
                            <div class="form-group">
                               <label for="email" class='fas fa-envelope'></label>
-                              <input type="email" placeholder="Адреса електронної пошти " formControlName="email"
-                                 ngModel>
+                              <input id="email" type="email" placeholder="Адреса електронної пошти " formControlName="email"
+                                 ngModel="{{editUser?.email}}">
                               <span class="text-danger"
                                  *ngIf="accountAdminData.controls.email.errors && accountAdminData.controls.email.touched">
                                  <br>Невірна адреса електронної пошти</span>
                            </div>
 
-                           <div class="form-group">
+                           <div class="form-group invisible">
                               <label for="password" class="fas fa-lock"></label>
-                              <input type="password" placeholder="Пароль " formControlName="password" ngModel>
+                              <input id="password" type="password" placeholder="Пароль " formControlName="password" ngModel="{{editUser?.password}}">
                               <span class="text-danger"
                                  *ngIf="accountAdminData.controls.password.errors && accountAdminData.controls.password.touched"><br>
                                  Необхідний мінімум 8-значний пароль
                               </span>
                            </div>
+
+                          <div class="form-group invisible">
+                            <label for="role" class="fas fa-lock"></label>
+                            <input id="role" type="text" placeholder="Роль " formControlName="role" ngModel="{{editUser?.role}}">
+                          </div>
+
+                          <div class="form-group invisible">
+                            <label for="shelterId" class="fas fa-lock"></label>
+                            <input id="shelterId" type="text" placeholder="Притулок " formControlName="shelterId" ngModel="{{editUser?.shelterId}}">
+                          </div>
+
                            <div class="text-center">
                               <button id="submitButton" type="submit" class="btn btn-primary"
-                                 routerLink="/account">Зберегти</button>
+                                 >Зберегти</button>
                            </div>
                         </form>
                      </div>
