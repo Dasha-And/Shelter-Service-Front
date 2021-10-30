@@ -1,8 +1,161 @@
-<app-header-unreg></app-header-unreg>
+
 <div id="appContainer">
-  <br>
-  <br>
-  <div id="map"></div>
+  <app-header-unreg></app-header-unreg>
+  <div class="findShelter">
+    <div class="findShelterItems">
+      <div class="shelter" data-bs-spy="scroll" >
+        <div class="shelterInfo">
+          <h3>Центр усыновления животных</h3>
+            <p>Університетська вулиця, 37-39, Харків, <br>
+              Харківська область, 61000</p>
+            <p>Зв'язатися : +380577316184</p>
+            <p>Сайт: <a href="http://animal-home.org/">http://animal-home.org/</a>	</p>
+          <h3>Мешканці:	</h3>
+          <div class="choiceDropdown">
+
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary " id="dropdownBasic4" ngbDropdownToggle>{{selectedKind}}</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem (click)="changeKind(item)" *ngFor = "let item of kind"
+                >{{item}}</button>
+              </div>
+            </div>
+
+
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary" id="dropdownBasic5" ngbDropdownToggle>{{selectedYears}}</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem (click)="changeYears(item)"  *ngFor = "let item of years">{{item}}</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="radioChoice2">
+            <p >Cтерилізовані:</p>
+            <div class="radio2">
+              <div class="form-check2">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Так
+                </label>
+              </div>
+              <div class="form-check2">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Ні
+                </label>
+              </div>
+              <div class="form-check2">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Немає різниці
+                </label>
+              </div>
+            </div>
+          </div>
+          <button id="submitButton1" type="submit" class="btn btn-primary">Фільтрувати</button>
+          <div class="animals">
+            <div class="animalsItem">
+              <div class="animalInfo">
+                <div class="animalsItemInfo">
+                  <p style="font-weight: bold; font-size: 16px">Барсик</p>
+                  <p >Вік: 1 рік </p>
+                  <p >Хлопчик</p>
+                  <p >Вага: 4кг</p>
+                </div>
+                <div class="animalsItemPhoto">
+                  <img src="https://www.belanta.vet/vet-blog/wp-content/uploads/2019/09/1-6.jpg" alt="">
+                </div>
+              </div>
+              <p>Грайливий,добрий,<br>
+                активний,любить сидіти на ручках,<br>шукає дім</p>
+              <a href="http://animal-home.org/">Більше інформації</a>
+            </div>
+
+            <div class="animalsItem">
+              <div class="animalInfo">
+                <div class="animalsItemInfo">
+                  <p style="font-weight: bold; font-size: 16px">Джек</p>
+                  <p >Вік: 1 рік </p>
+                  <p >Хлопчик</p>
+                  <p >Вага: 4кг</p>
+                </div>
+                <div class="animalsItemPhoto">
+                  <img src="https://zdorovaya-eda.com/sites/default/files/zdorovoe-pitanie/2-1/1c2fc6fe8a8c.jpg" alt="">
+                </div>
+              </div>
+              <p>Грайливий,добрий,<br>
+                активний,любить сидіти на ручках,<br>шукає дім</p>
+              <a href="http://animal-home.org/">Більше інформації</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="findShelterItems">
+      <div class="find">
+        <h2>Оберіть притулок на мапі або шукайте по всім притулкам :</h2>
+        <div class="choiceCriteria">
+          <div class="choiceDropdown">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary dropdown-toggle " id="dropdownBasic1" ngbDropdownToggle>{{selectedKind}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="changeKind(item)" *ngFor = "let item of kind"
+                  >{{item}}</button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary dropdown-toggle" id="dropdownBasic2" ngbDropdownToggle>{{selectedYears}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="changeYears(item)"  *ngFor = "let item of years">{{item}}</button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>{{selectedCity}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem  (click)="changeCity(item)" *ngFor = "let item of city">{{item}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="radioChoice">
+            <p class="radioP">Cтерилізовані</p>
+            <div class="radio">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Так
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Ні
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Немає різниці
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="submitButton" type="submit" class="btn btn-primary">Шукати</button>
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 <router-outlet></router-outlet>

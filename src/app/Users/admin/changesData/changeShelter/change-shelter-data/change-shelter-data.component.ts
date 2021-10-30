@@ -22,8 +22,8 @@ export class ChangeShelterDataComponent implements OnInit {
   ngOnInit(): void {
     this.accountShelterChange = this.fb.group({
       name: ['', [Validators.required]],
-      longitude: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-      latitude: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      longitude: ['', [Validators.required, Validators.pattern("[+-]?([0-9]*[.])?[0-9]+")]],
+      latitude: ['', [Validators.required, Validators.pattern("[+-]?([0-9]*[.])?[0-9]+")]],
       phone: ['', [Validators.required, Validators.pattern(new RegExp("[0-9 ]{12}"))]],
       email: ['', [Validators.required, Validators.pattern(new RegExp("\\w+@\\w+\\.\\w+"))]],
       siteUrl: ['', [Validators.required, Validators.pattern(new RegExp("https?://.+"))]],

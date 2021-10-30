@@ -1,5 +1,5 @@
 #appContainer{
-   height: 90vh;
+   height: 100vh;
    width: 100%;
    max-width: 100%;
    bottom: 80px;
@@ -7,10 +7,220 @@
    background: transparent url(../img/bg1.png) repeat; background-attachment: fixed !important;
 }
 
+#map{
+  margin-top: 20px;
+  left: 70px;
+  max-width: 75%;
+  max-height: 100%;
+}
+.choiceDropdown{
+  display: flex;
+  margin-top: 5px;
+}
+
 .navbar-brand{
    font-size: 28px;
 }
+.choiceCriteria{
+  display: flex;
+}
+
 .nav-item a{
    font-size: 20px;
 }
+.dropdown-toggle{
+  display: block;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 20px;
+  border: 2px solid #A8A8A8;
+  color:#A8A8A8;
+  left: 15px;
+  width: 95px;
+  padding: 3px;
+}
+#dropdownBasic3{
+  display: block;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 20px;
+  border: 2px solid #A8A8A8;
+  color:#A8A8A8;
+  left: 15px;
+  width: 120px;
+  padding: 3px;
+}
+.shelter{
+  position: relative;
+  margin-top: 100px;
+  margin-left: 30px;
+  width: 580px;
+  max-width: 630px;
+  overflow-x: hidden;
+  padding: 10px; /* Поля вокруг текста */
+  border-radius: 35px;
+  border: 2px solid #A8A8A8; /* Параметры границы */
+  background: #ffffff; /* Цвет фона */
+  max-height: 635px;
+  overflow-y: auto;
+}
+.shelter::-webkit-scrollbar-track {border-radius: 4px;}
+.shelter::-webkit-scrollbar {width: 8px;}
+.shelter::-webkit-scrollbar-thumb {border-radius: 8px;background: #A8A8A8;}
+.shelter:hover::-webkit-scrollbar-thumb {background: rgba(52, 152, 219, 1);}
 
+.choiceCriteria{
+  margin-top: 20px;
+  margin-left: 200px;
+  width: 750px; /* Ширина слоя */
+  padding: 10px; /* Поля вокруг текста */
+  border-radius: 35px;
+  border: 2px solid #A8A8A8; /* Параметры границы */
+  background: #ffffff; /* Цвет фона */
+}
+.findShelter{
+  display: flex;
+  margin-bottom: 50px;
+}
+#submitButton{
+  margin-left: 510px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 20px;
+  width: 15%;
+  margin-top: 20px;
+}
+#submitButton1{
+  margin-left: 160px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 20px;
+  width: 150px;
+  padding: 5px;
+}
+
+h2{
+
+  margin-left: 100px;
+  margin-top: 40px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+h3{
+  margin-top:20px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+p{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a{
+  color:blue;
+}
+.radioChoice{
+  margin-left: 20px;
+}
+.radioChoice2{
+  display: flex;
+  margin-top: 20px;
+}
+.radio{
+  display: flex;
+  position: relative;
+  margin-top: -18px;
+}
+.radio2{
+  display: flex;
+  position: relative;
+
+}
+.form-check{
+  margin-left: 15px;
+}
+.form-check2{
+  margin-left: 35px;
+}
+
+.radioP{
+  margin-left: 90px;
+  margin-top: -10px;
+  font-size: 16px;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+.animals{
+  display: flex;
+  justify-content: space-between;
+}
+.find{
+  position: relative;
+  left: -60px;
+}
+#dropdownBasic5{
+  margin-left: 20px;
+  width: 130px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px;
+}
+#dropdownBasic4{
+  width: 130px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px;
+}
+.animalsItemPhoto img {
+  width: 150px;
+  height: 150px;
+
+  border-radius: 20px;
+  margin-left: 10px;
+}
+.animalInfo{
+  display: flex;
+  justify-content: space-between;
+}
+
+.animalsItem{
+  position: relative;
+  width: 280px;
+  margin-left: 10px;
+  margin-top: 40px;
+  overflow-x: hidden;
+  padding: 10px; /* Поля вокруг текста */
+  border-radius: 35px;
+  border: 2px solid #A8A8A8; /* Параметры границы */
+  background: #ffffff; /* Цвет фона */
+  max-height: 380px;
+  overflow-y: auto;
+}
+.animalsItem:first-child{
+  margin-left: 0;
+}
+.shelterInfo{
+  margin-left:10px;
+}
+.animalsItemInfo p{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.animalsItem a{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 500;
+  margin-left: 40px;
+}
