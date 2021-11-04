@@ -5,11 +5,11 @@
     <div class="findShelterItems">
       <div class="shelter" data-bs-spy="scroll" >
         <div class="shelterInfo">
-          <h3>Центр усыновления животных</h3>
+          <h3>{{selectedShelter?.name}}</h3>
             <p>Університетська вулиця, 37-39, Харків, <br>
               Харківська область, 61000</p>
-            <p>Зв'язатися : +380577316184</p>
-            <p>Сайт: <a href="http://animal-home.org/">http://animal-home.org/</a>	</p>
+            <p>Зв'язатися : {{selectedShelter?.phone}}</p>
+            <p>Сайт: <a href="{{selectedShelter?.siteUrl}}">{{selectedShelter?.siteUrl}}</a>	</p>
           <h3>Мешканці:	</h3>
           <div class="choiceDropdown">
 

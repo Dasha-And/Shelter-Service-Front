@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   public selectedYears = '';
   public selectedCity = '';
   public shelters: Shelter[] = [];
+  public selectedShelter : Shelter | undefined;
 
   constructor(private shelterService : ShelterService) {
     this.selectedKind = this.kind[0];
@@ -30,7 +31,9 @@ export class HomeComponent implements OnInit {
     this.getShelters()
 
   }
-
+  markerOnClick(shelter:Shelter) {
+    this.selectedShelter = shelter;
+  }
   changeKind(item:any){
     this.selectedKind = item;
   }
@@ -40,6 +43,7 @@ export class HomeComponent implements OnInit {
   changeCity(item:any){
     this.selectedCity = item;
   }
+
   public getShelters(): void {
     let map = L.map('map').setView([50.00151883707298, 36.23488272651544], 13);
     L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token=IHi7no8DxWB8RFhDySRviophJJUk5J7eQV5CrAvu4oWjjNed0Oa7RdSQxPCVtt5Q', {
@@ -49,14 +53,27 @@ export class HomeComponent implements OnInit {
       subdomains: 'abcd',
       accessToken: 'IHi7no8DxWB8RFhDySRviophJJUk5J7eQV5CrAvu4oWjjNed0Oa7RdSQxPCVtt5Q'
     }).addTo(map);
+
+    const groupClick = (event: { layer: { test: Shelter; }; }) =>{
+      this.selectedShelter = event?.layer.test;
+    }
+    // @ts-ignore
+    var markersLayer = new L.featureGroup().addTo(map).on('click', groupClick);
+    map.addLayer(markersLayer);
     this.shelterService.getShelter().subscribe(
       (response : Shelter[]) => {
         this.shelters = response;
+        var shelter : Shelter;
         for (let i = 0; i < response.length; i++) {
-          let marker = L.marker([response[i].latitude, response[i].longitude]).addTo(map);
+          shelter = response[i];
+          let marker = L.marker([response[i].latitude, response[i].longitude]).addTo(markersLayer);
+          marker.test = shelter;
+          console.log(this.selectedShelter);
           marker.bindPopup(response[i].name);
         }
+
       },
+
       (error : HttpErrorResponse) => {
         alert(error.message);
       }
