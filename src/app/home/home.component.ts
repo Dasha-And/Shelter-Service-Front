@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   public selectedCity = '';
   public shelters: Shelter[] = [];
   public selectedShelter : Shelter | undefined;
-
+  public selected = false;
   constructor(private shelterService : ShelterService) {
     this.selectedKind = this.kind[0];
     this.selectedYears = this.years[0];
@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
 
     const groupClick = (event: { layer: { test: Shelter; }; }) =>{
       this.selectedShelter = event?.layer.test;
+      this.selected = true;
     }
     // @ts-ignore
     var markersLayer = new L.featureGroup().addTo(map).on('click', groupClick);

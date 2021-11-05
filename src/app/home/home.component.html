@@ -4,10 +4,10 @@
   <div class="findShelter">
     <div class="findShelterItems">
       <div class="shelter" data-bs-spy="scroll" >
-        <div class="shelterInfo">
+        <div class="shelterInfo" *ngIf="selected">
           <h3>{{selectedShelter?.name}}</h3>
-            <p>Університетська вулиця, 37-39, Харків, <br>
-              Харківська область, 61000</p>
+            <p>Довгота: {{selectedShelter?.longitude}}</p>
+            <p>Широта: {{selectedShelter?.latitude}}</p>
             <p>Зв'язатися : {{selectedShelter?.phone}}</p>
             <p>Сайт: <a href="{{selectedShelter?.siteUrl}}">{{selectedShelter?.siteUrl}}</a>	</p>
           <h3>Мешканці:	</h3>
@@ -90,7 +90,7 @@
             </div>
           </div>
         </div>
-
+        <div *ngIf="!selected"><p style="text-align: center; margin-top: 20px; font-size: 21px">Оберіть притулок на карті шоб побачити його інформацію тут</p></div>
       </div>
     </div>
     <div class="findShelterItems">
