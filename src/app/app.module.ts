@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -21,6 +20,9 @@ import { ChangeAccountDataComponent } from './Users/admin/changesData/changeAcco
 import { ChangeShelterDataComponent } from './Users/admin/changesData/changeShelter/change-shelter-data/change-shelter-data.component';
 import { CommonModule } from '@angular/common';
 import {NgbDropdownModule} from "@ng-bootstrap/ng-bootstrap";
+import { AddAnimalComponent } from './Users/admin/shelter/addAnimal/add-animal/add-animal.component';
+import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,7 +36,7 @@ const appRoutes: Routes = [
   { path: 'account/:userId, shelterId', component: AccountAdminComponent },
   { path: 'changeAccount/:shelterId, userId', component: ChangeAccountDataComponent},
   { path: 'changeShelter/:shelterId, userId', component: ChangeShelterDataComponent },
-
+  { path: 'addAnimals' , component: AddAnimalComponent}
 ]
 
 @NgModule({
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
     AccountAdminComponent,
     ChangeAccountDataComponent,
     ChangeShelterDataComponent,
+    AddAnimalComponent,
 
 
   ],
@@ -65,7 +68,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     CommonModule,
     NgbDropdownModule,
-
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
