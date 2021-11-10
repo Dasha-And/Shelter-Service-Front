@@ -1,9 +1,9 @@
 
-<div id="appContainer">
+<div id="appContainer" row>
   <app-header-unreg></app-header-unreg>
-  <div class="findShelter">
-    <div class="findShelterItems">
-      <div class="shelter" data-bs-spy="scroll" >
+  <div class="findShelter container">
+    <div class="findShelterItems row">
+      <div class="shelter col-10" data-bs-spy="scroll" >
         <div class="shelterInfo" *ngIf="selected">
           <h3>{{selectedShelter?.name}}</h3>
             <p>Довгота: {{selectedShelter?.longitude}}</p>
@@ -150,7 +150,7 @@
           </div>
         </div>
         <button id="submitButton" type="submit" class="btn btn-primary">Шукати</button>
-        <div id="map"></div>
+        <div id="map" class="col-6"></div>
       </div>
     </div>
   </div>
