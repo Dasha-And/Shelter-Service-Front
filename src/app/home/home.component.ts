@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Shelter} from "../model/shelter";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ShelterService} from "../service/shelter.service";
+import {Animal} from "../model/animal";
+import {AnimalService} from "../service/animal.service";
 
 
 
@@ -19,9 +21,10 @@ export class HomeComponent implements OnInit {
   public selectedYears = '';
   public selectedCity = '';
   public shelters: Shelter[] = [];
-  public selectedShelter : Shelter | undefined;
+  public animalsByShelter : Animal[] = [];
+  public selectedShelter! : Shelter;
   public selected = false;
-  constructor(private shelterService : ShelterService) {
+  constructor(private shelterService : ShelterService, private animalService : AnimalService) {
     this.selectedKind = this.kind[0];
     this.selectedYears = this.years[0];
     this.selectedCity = this.city[0];
@@ -56,6 +59,11 @@ export class HomeComponent implements OnInit {
 
     const groupClick = (event: { layer: { test: Shelter; }; }) =>{
       this.selectedShelter = event?.layer.test;
+      this.animalService.getAnimalsByShelter(this.selectedShelter?.id).subscribe(
+        (response : Animal[]) => {
+          this.animalsByShelter = response;
+        }
+      )
       this.selected = true;
     }
     // @ts-ignore
@@ -79,5 +87,13 @@ export class HomeComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public getAnimals() {
+    this.animalService.getAnimalsByShelter(this.selectedShelter?.id).subscribe(
+      (response : Animal[]) => {
+        this.animalsByShelter = response;
+      }
+    )
   }
 }

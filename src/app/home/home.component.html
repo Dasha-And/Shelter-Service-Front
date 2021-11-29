@@ -55,39 +55,38 @@
           </div>
           <button id="submitButton1" type="submit" class="btn btn-primary">Фільтрувати</button>
           <div class="animals">
-            <div class="animalsItem">
+            <div class="animalsItem" *ngFor="let animal of animalsByShelter">
               <div class="animalInfo">
-                <div class="animalsItemInfo">
-                  <p style="font-weight: bold; font-size: 16px">Барсик</p>
-                  <p >Вік: 1 рік </p>
-                  <p >Хлопчик</p>
-                  <p >Вага: 4кг</p>
+                <div class="animalsItemInfo" >
+                  <p style="font-weight: bold; font-size: 16px">{{animal.name}}</p>
+                  <p >Дата народження: {{animal.dateOfBirth}}</p>
+                  <p >{{animal.gender}}</p>
+                  <p >{{animal.species}}</p>
                 </div>
                 <div class="animalsItemPhoto">
-                  <img src="https://www.belanta.vet/vet-blog/wp-content/uploads/2019/09/1-6.jpg" alt="">
+                  <img src="{{animal.imageUrl}}" alt="">
                 </div>
               </div>
-              <p>Грайливий,добрий,<br>
-                активний,любить сидіти на ручках,<br>шукає дім</p>
+              <p>{{animal.description}}</p>
               <a href="#" routerLink="/fullInfoAnimal">Більше інформації</a>
             </div>
 
-            <div class="animalsItem">
-              <div class="animalInfo">
-                <div class="animalsItemInfo">
-                  <p style="font-weight: bold; font-size: 16px">Джек</p>
-                  <p >Вік: 1 рік </p>
-                  <p >Хлопчик</p>
-                  <p >Вага: 4кг</p>
-                </div>
-                <div class="animalsItemPhoto">
-                  <img src="https://zdorovaya-eda.com/sites/default/files/zdorovoe-pitanie/2-1/1c2fc6fe8a8c.jpg" alt="">
-                </div>
-              </div>
-              <p>Грайливий,добрий,<br>
-                активний,любить сидіти на ручках,<br>шукає дім</p>
-              <a href="#" routerLink="/fullInfoAnimal">Більше інформації</a>
-            </div>
+<!--            <div class="animalsItem">-->
+<!--              <div class="animalInfo">-->
+<!--                <div class="animalsItemInfo">-->
+<!--                  <p style="font-weight: bold; font-size: 16px">Джек</p>-->
+<!--                  <p >Вік: 1 рік </p>-->
+<!--                  <p >Хлопчик</p>-->
+<!--                  <p >Вага: 4кг</p>-->
+<!--                </div>-->
+<!--                <div class="animalsItemPhoto">-->
+<!--                  <img src="https://zdorovaya-eda.com/sites/default/files/zdorovoe-pitanie/2-1/1c2fc6fe8a8c.jpg" alt="">-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <p>Грайливий,добрий,<br>-->
+<!--                активний,любить сидіти на ручках,<br>шукає дім</p>-->
+<!--              <a href="#" routerLink="/fullInfoAnimal">Більше інформації</a>-->
+<!--            </div>-->
           </div>
         </div>
         <div *ngIf="!selected"><p style="text-align: center; margin-top: 20px; font-size: 21px">Оберіть притулок на карті шоб побачити його інформацію тут</p></div>
