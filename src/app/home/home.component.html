@@ -1,21 +1,21 @@
 
-<div id="appContainer" row>
+<div id="appContainer">
   <app-header-unreg></app-header-unreg>
-  <div class="findShelter container">
-    <div class="findShelterItems row">
-      <div class="shelter col-10" data-bs-spy="scroll" >
+  <div class="findShelter container-fluid row col">
+    <div class="findShelterItems col-5">
+      <div class="shelter " data-bs-spy="scroll" >
         <div class="shelterInfo" *ngIf="selected">
           <h3>{{selectedShelter?.name}}</h3>
-            <p>Довгота: {{selectedShelter?.longitude}}</p>
-            <p>Широта: {{selectedShelter?.latitude}}</p>
-            <p>Зв'язатися : {{selectedShelter?.phone}}</p>
-            <p>Сайт: <a href="{{selectedShelter?.siteUrl}}">{{selectedShelter?.siteUrl}}</a>	</p>
+          <p>Довгота: {{selectedShelter?.longitude}}</p>
+          <p>Широта: {{selectedShelter?.latitude}}</p>
+          <p>Зв'язатися : {{selectedShelter?.phone}}</p>
+          <p>Сайт: <a href="{{selectedShelter?.siteUrl}}">{{selectedShelter?.siteUrl}}</a>	</p>
           <h3>Мешканці:	</h3>
           <div class="choiceDropdown">
 
             <div ngbDropdown class="d-inline-block">
               <button class="btn btn-outline-primary " id="dropdownBasic4" ngbDropdownToggle>{{selectedKind}}</button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic4">
                 <button ngbDropdownItem (click)="changeKind(item)" *ngFor = "let item of kind"
                 >{{item}}</button>
               </div>
@@ -24,7 +24,7 @@
 
             <div ngbDropdown class="d-inline-block">
               <button class="btn btn-outline-primary" id="dropdownBasic5" ngbDropdownToggle>{{selectedYears}}</button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic5">
                 <button ngbDropdownItem (click)="changeYears(item)"  *ngFor = "let item of years">{{item}}</button>
               </div>
             </div>
@@ -69,7 +69,7 @@
               </div>
               <p>Грайливий,добрий,<br>
                 активний,любить сидіти на ручках,<br>шукає дім</p>
-              <a href="http://animal-home.org/">Більше інформації</a>
+              <a href="#" routerLink="/fullInfoAnimal">Більше інформації</a>
             </div>
 
             <div class="animalsItem">
@@ -86,20 +86,20 @@
               </div>
               <p>Грайливий,добрий,<br>
                 активний,любить сидіти на ручках,<br>шукає дім</p>
-              <a href="http://animal-home.org/">Більше інформації</a>
+              <a href="#" routerLink="/fullInfoAnimal">Більше інформації</a>
             </div>
           </div>
         </div>
         <div *ngIf="!selected"><p style="text-align: center; margin-top: 20px; font-size: 21px">Оберіть притулок на карті шоб побачити його інформацію тут</p></div>
       </div>
     </div>
-    <div class="findShelterItems">
+    <div class="findShelterItems col-7">
       <div class="find">
         <h2>Оберіть притулок на мапі або шукайте по всім притулкам :</h2>
-        <div class="choiceCriteria">
+        <div class="choiceCriteria col-10">
           <div class="choiceDropdown">
             <div class="col">
-              <div ngbDropdown class="d-inline-block">
+              <div ngbDropdown class="d-inline-block ">
                 <button class="btn btn-outline-primary dropdown-toggle " id="dropdownBasic1" ngbDropdownToggle>{{selectedKind}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                   <button ngbDropdownItem (click)="changeKind(item)" *ngFor = "let item of kind"
@@ -110,7 +110,7 @@
             <div class="col">
               <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary dropdown-toggle" id="dropdownBasic2" ngbDropdownToggle>{{selectedYears}}</button>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
                   <button ngbDropdownItem (click)="changeYears(item)"  *ngFor = "let item of years">{{item}}</button>
                 </div>
               </div>
@@ -118,14 +118,14 @@
             <div class="col">
               <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>{{selectedCity}}</button>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
                   <button ngbDropdownItem  (click)="changeCity(item)" *ngFor = "let item of city">{{item}}</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="radioChoice">
+          <div class="radioChoice col-7">
             <p class="radioP">Cтерилізовані</p>
             <div class="radio">
               <div class="form-check">

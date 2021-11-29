@@ -7,6 +7,7 @@
             <div id="CardStyle" class="card justify-content-center">
                <div class="card-body">
                   <form [formGroup]="addAnimal" (ngSubmit)="reg()">
+                    <h2 class="text-center">Внесіть дані про тварину</h2>
                      <div class="form-group">
 
                         <label for="name" class="fas fa-user"></label>
@@ -109,7 +110,7 @@
 
                      <div class="text-center">
                         <button id="submitButton" type="submit" class="btn btn-primary"
-                           [disabled]="!addAnimal.valid">Зареєструватись</button>
+                           [disabled]="!addAnimal.valid">Зареєструвати</button>
                      </div>
                   </form>
             </div>

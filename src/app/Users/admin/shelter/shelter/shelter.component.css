@@ -1,13 +1,9 @@
 #appContainer{
-   height: 90vh;
-
+   height: 100%;
    width: 100%;
    max-width: 100%;
    bottom: 80px;
-
-
    overflow-x: hidden;
-   overflow-y: hidden;
    background: transparent url(../../../../img/bg1.png) repeat; background-attachment: fixed !important;
 }
 
@@ -16,4 +12,17 @@
 }
 .nav-item a{
    font-size: 20px;
+}
+.btn{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 18px;
+  margin-left: 30px;
+}
+.button{
+  margin-left: 480px;
+}
+h2{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 28px;
+  margin: 40px 0;
 }

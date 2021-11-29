@@ -22,6 +22,9 @@ import { CommonModule } from '@angular/common';
 import {NgbDropdownModule} from "@ng-bootstrap/ng-bootstrap";
 import { AddAnimalComponent } from './Users/admin/shelter/addAnimal/add-animal/add-animal.component';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditAnimalComponent } from './Users/admin/shelter/editAnimal/edit-animal/edit-animal.component';
+import { FullInfoAnimalComponent } from './Users/admin/shelter/watchInfoAnimal/full-info-animal/full-info-animal.component';
+
 
 
 const appRoutes: Routes = [
@@ -36,7 +39,9 @@ const appRoutes: Routes = [
   { path: 'account/:userId, shelterId', component: AccountAdminComponent },
   { path: 'changeAccount/:shelterId, userId', component: ChangeAccountDataComponent},
   { path: 'changeShelter/:shelterId, userId', component: ChangeShelterDataComponent },
-  { path: 'addAnimals' , component: AddAnimalComponent}
+  { path: 'addAnimals' , component: AddAnimalComponent},
+  { path: 'editAnimal' , component: EditAnimalComponent},
+  { path: 'fullInfoAnimal' , component: FullInfoAnimalComponent},
 ]
 
 @NgModule({
@@ -56,6 +61,9 @@ const appRoutes: Routes = [
     ChangeAccountDataComponent,
     ChangeShelterDataComponent,
     AddAnimalComponent,
+    EditAnimalComponent,
+    FullInfoAnimalComponent,
+
 
 
   ],
