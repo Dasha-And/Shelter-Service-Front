@@ -1,0 +1,148 @@
+
+input{
+  border: none;
+  background-color: rgba(255,255,255,0);
+  border-bottom: solid black;
+  size: 3px;
+  margin-left: 10px;
+  width: 85%;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+
+}
+label{
+  color:grey;
+
+}
+h2{
+  margin:0 auto;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 28px;
+}
+.form-group{
+  margin-top: 30px;
+
+}
+form{
+  padding: 12px;
+}
+
+#submitButton{
+  margin: 25px;
+  width: 40%;
+}
+.form-check{
+  margin-top: 20px;
+}
+.form-check-input{
+  border: solid grey;
+  border-radius: 2px;
+  width: 6.5%;
+  height: 23px;
+}
+.form-check-label{
+  position: relative;
+  left: 10px;
+  top : 3px;
+  color: grey;
+}
+/* .form-check-input:checked + .form-check-label{
+   color: rgb(255, 116, 116);
+} */
+.form-check-input:checked + .form-check-label{
+  color: red;
+}
+.register{
+
+  margin: 60px auto;
+  max-width: 600px;
+  /* padding: 90px 70px;
+  background:#fff; */
+  color: #000;
+  position: relative;
+  text-shadow: none;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+}
+#CardStyle{
+  /* background-color: rgb(255, 255, 255,0.4); */
+  box-shadow: 5px 3px 5px 5px gray;
+}
+.btn{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+}
+.form-check-label{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+#appContainer{
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  bottom: 80px;
+  overflow-x:  hidden;
+  background: transparent url(../../../../../img/bg1.png) repeat; background-attachment: fixed !important;
+}
+#buttonAge{
+  background-color: transparent;
+  border: none;
+  color: grey;
+  margin-right: 5px;
+}
+.input-group{
+  position: relative;
+  right: 5px;
+
+}
+.input-group span{
+  position: relative;
+  left: 5px;
+  bottom: 0;
+}
+.animal{
+  display: flex;
+}
+/*.typeAnimal label{*/
+/*  position: relative;*/
+/*  top: 2px;*/
+/*}*/
+.animal p{
+  color: grey;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin-left: 11px;
+}
+
+.radioChoice1{
+  display: flex;
+  margin-left: 150px;
+
+}
+
+.radioChoice2{
+  display: flex;
+  margin-left: 119px;
+
+}
+.radioChoice3{
+  display: flex;
+  margin-left: 140px;
+
+}
+.custom-control{
+  position: relative;
+  display: block;
+  padding-left: 80px;
+}
+.custom-control:first-child{
+  position: relative;
+  display: block;
+  padding-left: 0;
+}
+#input-file-id{
+  border: none;
+}
