@@ -35,7 +35,7 @@ const appRoutes: Routes = [
   { path: 'adminPage/:userId', component: AdminComponent },
   { path: 'userPage', component: UserComponent },
   { path: 'adminFormReg/:userId', component: AdminFormRegComponent },
-  { path: 'shelter', component: ShelterComponent },
+  { path: 'shelter/:shelterId', component: ShelterComponent },
   { path: 'account/:userId, shelterId', component: AccountAdminComponent },
   { path: 'changeAccount/:shelterId, userId', component: ChangeAccountDataComponent},
   { path: 'changeShelter/:shelterId, userId', component: ChangeShelterDataComponent },

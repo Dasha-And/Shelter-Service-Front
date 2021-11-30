@@ -48,6 +48,14 @@ export class AccountAdminComponent implements OnInit {
 
     });
   }
+
+  goToShelter() {
+    this.route.queryParams.subscribe(params => {
+      const shelterId = params['shelterId'];
+      this.router.navigate(['/shelter/:shelterId'], {queryParams: {shelterId: shelterId}});
+
+    });
+  }
   // public onUpdateShelter(shelter: Sport): void {
   //   this.sportService.updateSport(sport).subscribe(
   //     (response) => {

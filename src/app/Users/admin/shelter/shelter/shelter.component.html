@@ -4,6 +4,24 @@
   <h2 class="text-center">Здесь название приюта</h2>
   <div class="button">
     <a routerLink="/addAnimals" class="btn btn-primary" aria-current="page" href="#">Додати тваринку</a>
-    <a routerLink="/editAnimal" class="btn btn-primary" aria-current="page" href="#">Редагувати тваринку</a>
+    
   </div>
+  <div class="animals">
+    <div class="animalsItem" *ngFor="let animal of animals">
+    <div class="animalInfo">
+      <div class="animalsItemInfo" >
+        <p style="font-weight: bold; font-size: 16px">{{animal.name}}</p>
+        <p >Вік: {{animal.dateOfBirth}}</p>
+        <p >{{animal.gender}}</p>
+        <p >{{animal.species}}</p>
+      </div>
+      <div class="animalsItemPhoto">
+        <img src="{{animal.imageUrl}}" alt="" style="object-fit: cover;">
+      </div>
+    </div>
+    <p>{{animal.description}}</p>
+    <a routerLink="/editAnimal" class="btn btn-primary" aria-current="page" href="#" id="edit">Редагувати тваринку</a>
+  </div>
+  </div>
+  
 </div>

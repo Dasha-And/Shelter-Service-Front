@@ -6,7 +6,7 @@
             <!-- <div class="col-12"> -->
             <div id="CardStyle" class="card justify-content-center">
                <div class="card-body">
-                  <form [formGroup]="addAnimal" (ngSubmit)="reg()">
+                  <form [formGroup]="addAnimal" (ngSubmit)="add()">
                     <h2 class="text-center">Внесіть дані про тварину</h2>
                      <div class="form-group">
 
@@ -23,9 +23,9 @@
                         <div class="input-group-append">
                           <button id="buttonAge" class="fas fa-calendar" (click)="d.toggle()" type="button"></button>
                         </div>
-                        <input  id="ageAnimal" type="text" placeholder="Вік тварини" formControlName="ageAnimal" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                        <input  id="dateOfBirth" type="date" placeholder="Дата народження" formControlName="dateOfBirth" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
                         <span class="text-danger"
-                              *ngIf=" addAnimal.controls.ageAnimal.errors && addAnimal.controls.ageAnimal.touched ">
+                              *ngIf=" addAnimal.controls.dateOfBirth.errors && addAnimal.controls.dateOfBirth.touched ">
                            <br>Вік тварини обов'язковиий
                         </span>
                       </div>
@@ -38,13 +38,13 @@
                         <p>Вид тварини</p>
                         <div class="radioChoice1">
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Кіт" id="typeAnimal1" formControlName="typeAnimal"  >
-                            <label class="custom-control-label" for="typeAnimal1">Кіт</label>
+                            <input type="radio" class="custom-control-input" value="Кіт" ngValue="Кіт" id="species" formControlName="species"  name="species">
+                            <label class="custom-control-label" for="species">Кіт</label>
                           </div>
 
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Собака" id="typeAnimal2" formControlName="typeAnimal" checked >
-                            <label class="custom-control-label" for="typeAnimal2">Собака</label>
+                            <input type="radio" class="custom-control-input" value="Собака" id="species2" ngValue="Собака" formControlName="species" checked name="species">
+                            <label class="custom-control-label" for="species2">Собака</label>
                           </div>
                         </div>
                       </div>
@@ -56,13 +56,13 @@
                         <p>Стать тварини</p>
                         <div class="radioChoice2">
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Чоловічий" id="sexAnimal1" formControlName="sexAnimal"  >
-                            <label class="custom-control-label" for="sexAnimal1"> Ч . </label>
+                            <input type="radio" class="custom-control-input" ngValue="Хлопчик" id="gender" formControlName="gender"  name="gender">
+                            <label class="custom-control-label" for="gender"> Ч . </label>
                           </div>
 
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Жіночий" id="sexAnimal2" formControlName="sexAnimal" checked >
-                            <label class="custom-control-label" for="sexAnimal2">Жін.</label>
+                            <input type="radio" class="custom-control-input" ngValue="Дівчинка" id="gender2" formControlName="gender" checked name="gender">
+                            <label class="custom-control-label" for="gender2">Жін.</label>
                           </div>
                         </div>
                       </div>
@@ -74,15 +74,26 @@
                         <p>Стерилізовані</p>
                         <div class="radioChoice3">
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Ні" id="sterilizationAnimal2" formControlName="sterilizationAnimal" checked >
+                            <input type="radio" class="custom-control-input" ngValue="false" id="sterilizationAnimal2" formControlName="sterilized" checked name="sterelized">
                             <label class="custom-control-label" for="sterilizationAnimal2">Ні.</label>
                           </div>
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Так" id="sterilizationAnimal1" formControlName="sterilizationAnimal"  >
+                            <input type="radio" class="custom-control-input" ngValue="true" id="sterilizationAnimal1" formControlName="sterilized"  name="sterelized">
                             <label class="custom-control-label" for="sterilizationAnimal1">Так.</label>
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="animal">
+                        <label for="form1" class="fas fa-pencil-alt" ></label>
+                        <p>Посилання на фото тварини</p>
+                        <input type="text" id="imageUrl" class="md-textarea md-textarea-auto form-control" formControlName = "imageUrl">
+                      </div>
+                      <span class="text-danger"
+                            *ngIf=" addAnimal.controls.description.errors && addAnimal.controls.description.touched ">
+                           <br>Фото тварини обов'язкове
+                        </span>
                     </div>
                     <div class="form-group">
                       <div class="animal">
@@ -95,8 +106,7 @@
                            <br>Опис тварини обов'язковиий
                         </span>
                     </div>
-
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <div class="animal">
                         <label for="input-file-id" class="fas fa-file-image" ></label>
                         <p>Фото тварини</p>
@@ -106,7 +116,7 @@
                                                         *ngIf=" addAnimal.controls.photoAnimal.errors && addAnimal.controls.photoAnimal.touched ">
                            <br>Фото тварини обов'язковиий
                         </span>
-                    </div>
+                    </div> -->
 
                      <div class="text-center">
                         <button id="submitButton" type="submit" class="btn btn-primary"

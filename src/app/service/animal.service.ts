@@ -22,11 +22,9 @@ export class AnimalService {
     return this.http.get<Animal[]>(`${this.apiServerUrl}/animals/${id}`);
   }
 
-  public addAnimal(animal : Animal, userId : number): Observable<Animal> {
+  public addAnimal(animal : Animal): Observable<Animal> {
     console.log(animal);
-    let params = new HttpParams()
-      .set('userId', userId);
-    return this.http.post<Animal>(`${this.apiServerUrl}/create_animal`, animal, {params : params});
+    return this.http.post<Animal>(`${this.apiServerUrl}/create_animal`, animal);
   }
   public getAnimalPage(id : number): Observable<Animal> {
     let params = new HttpParams()
@@ -34,9 +32,7 @@ export class AnimalService {
     return this.http.get<Animal>(`${this.apiServerUrl}/animal_page`, {params: params})
   }
 
-  public updateAnimal(animal : Animal, id : number): Observable<Animal> {
-    let params = new HttpParams()
-      .set('id', id);
-    return this.http.put<Animal>(`${this.apiServerUrl}/update_animal`, animal, {params: params});
+  public updateAnimal(animal : Animal): Observable<Animal> {
+    return this.http.put<Animal>(`${this.apiServerUrl}/update_animal`, animal);
   }
 }
