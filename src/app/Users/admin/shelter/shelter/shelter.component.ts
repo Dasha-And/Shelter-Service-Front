@@ -19,6 +19,7 @@ export class ShelterComponent implements OnInit {
       const shelterId = params['shelterId'];
       this.animalService.getAnimalsByShelter(shelterId).subscribe((response : Animal[]) => {
         this.animals = response;
+        console.log(response)
       },
       (error : HttpErrorResponse) => {
         alert(error.message);

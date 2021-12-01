@@ -3,8 +3,8 @@ export interface Animal {
   name: string;
   description: string;
   gender: string;
-  dateOfBirth: string;
-  sterelized: boolean;
+  age: string;
+  sterilized: boolean;
   imageUrl: string;
   species: string;
   shelterId: number;
