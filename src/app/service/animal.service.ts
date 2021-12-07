@@ -18,8 +18,22 @@ export class AnimalService {
     return this.http.get<Animal[]>(`${this.apiServerUrl}/animals`);
   }
 
-  public getAnimalsByShelter(id: number): Observable<Animal[]> {
-    return this.http.get<Animal[]>(`${this.apiServerUrl}/animals/${id}`);
+  public getAnimalsByShelter(id: number, sterilized?: boolean, species?: string): Observable<Animal[]> {
+    let params : any = {};
+    console.log(species)
+    if (sterilized != undefined) {
+      params.sterilized = sterilized;
+    }
+    if (species != undefined) {
+      console.log("ok")
+      params.species = species;
+    }
+    console.log(params)
+    return this.http.get<Animal[]>(`${this.apiServerUrl}/animals/${id}`, {params: params});
+  }
+
+  public getAge(id: number): Observable<number> {
+    return this.http.get<number>(`${this.apiServerUrl}/age/${id}`);
   }
 
   public addAnimal(animal : Animal): Observable<Animal> {

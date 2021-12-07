@@ -39,7 +39,7 @@ const appRoutes: Routes = [
   { path: 'account/:userId, shelterId', component: AccountAdminComponent },
   { path: 'changeAccount/:shelterId, userId', component: ChangeAccountDataComponent},
   { path: 'changeShelter/:shelterId, userId', component: ChangeShelterDataComponent },
-  { path: 'addAnimals' , component: AddAnimalComponent},
+  { path: 'addAnimals/:shelterId' , component: AddAnimalComponent},
   { path: 'editAnimal' , component: EditAnimalComponent},
   { path: 'fullInfoAnimal' , component: FullInfoAnimalComponent},
 ]

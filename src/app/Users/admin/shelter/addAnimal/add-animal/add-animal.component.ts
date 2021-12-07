@@ -27,11 +27,13 @@ export class AddAnimalComponent implements OnInit {
       gender:['', [Validators.required]],
       sterilized: ['', [Validators.required]],
       description: ['',[Validators.required] ],
-      imageUrl: ['', [Validators.required]]
+      imageUrl: ['', [Validators.required]],
+      shelterId: []
     })
     this.route.queryParams.subscribe(params => {
         const shelterId = params['shelterId'];
         this.shelterId = shelterId;
+        console.log(this.shelterId)
       });
   }
   add() {

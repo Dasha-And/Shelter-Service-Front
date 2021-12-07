@@ -194,7 +194,7 @@ a{
 
 .animalsItem{
   position: relative;
-  width: 18vw;
+  width: 17.5vw;
   margin-left: 0;
   margin-top: 40px;
   overflow-x: hidden;
@@ -220,4 +220,20 @@ a{
   margin-top: 5px;
   font-weight: 500;
   margin-left: 40px;
+}
+
+#CardStyle{
+  background-color: rgba(255, 255, 255,0.4);
+  box-shadow: 5px 3px 5px 5px gray;
+}
+.navbar-brand{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+
+}
+.d-flex a{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
 }

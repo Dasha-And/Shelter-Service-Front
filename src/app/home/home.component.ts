@@ -4,6 +4,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {ShelterService} from "../service/shelter.service";
 import {Animal} from "../model/animal";
 import {AnimalService} from "../service/animal.service";
+import {timeout} from "rxjs/operators";
 
 
 
@@ -90,9 +91,17 @@ export class HomeComponent implements OnInit {
   }
 
   public getAnimals() {
-    this.animalService.getAnimalsByShelter(this.selectedShelter?.id).subscribe(
+    // var species: string = (<HTMLInputElement>document.getElementById("dropdownBasic4")).value;
+    // console.log(species)
+    this.animalService.getAnimalsByShelter(this.selectedShelter?.id, this.selected, undefined).subscribe(
       (response : Animal[]) => {
-        this.animalsByShelter = response;
+        setTimeout(() =>
+          {
+            console.log(response)
+            this.animalsByShelter = response;
+          },
+          1000);
+
       }
     )
   }

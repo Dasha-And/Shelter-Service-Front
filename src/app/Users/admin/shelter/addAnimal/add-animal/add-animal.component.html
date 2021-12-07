@@ -20,10 +20,7 @@
 
                     <div class="form-group">
                       <div class="input-group">
-                        <div class="input-group-append">
-                          <button id="buttonAge" class="fas fa-calendar" (click)="d.toggle()" type="button"></button>
-                        </div>
-                        <input  id="dateOfBirth" type="date" placeholder="Дата народження" formControlName="dateOfBirth" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                        <input  id="dateOfBirth" type="date" placeholder="Дата народження" formControlName="dateOfBirth">
                         <span class="text-danger"
                               *ngIf=" addAnimal.controls.dateOfBirth.errors && addAnimal.controls.dateOfBirth.touched ">
                            <br>Вік тварини обов'язковиий
@@ -38,12 +35,12 @@
                         <p>Вид тварини</p>
                         <div class="radioChoice1">
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Кіт" ngValue="Кіт" id="species" formControlName="species"  name="species">
+                            <input type="radio" class="custom-control-input" value="Кіт" id="species" formControlName="species"  name="species">
                             <label class="custom-control-label" for="species">Кіт</label>
                           </div>
 
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" value="Собака" id="species2" ngValue="Собака" formControlName="species" checked name="species">
+                            <input type="radio" class="custom-control-input" value="Собака" id="species2" formControlName="species" name="species">
                             <label class="custom-control-label" for="species2">Собака</label>
                           </div>
                         </div>
@@ -56,12 +53,12 @@
                         <p>Стать тварини</p>
                         <div class="radioChoice2">
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" ngValue="Хлопчик" id="gender" formControlName="gender"  name="gender">
+                            <input type="radio" class="custom-control-input" value="Хлопчик" id="gender" formControlName="gender"  name="gender">
                             <label class="custom-control-label" for="gender"> Ч . </label>
                           </div>
 
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" ngValue="Дівчинка" id="gender2" formControlName="gender" checked name="gender">
+                            <input type="radio" class="custom-control-input"  value="Дівчинка" id="gender2" formControlName="gender" name="gender">
                             <label class="custom-control-label" for="gender2">Жін.</label>
                           </div>
                         </div>
@@ -74,11 +71,11 @@
                         <p>Стерилізовані</p>
                         <div class="radioChoice3">
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" ngValue="false" id="sterilizationAnimal2" formControlName="sterilized" checked name="sterelized">
+                            <input type="radio" class="custom-control-input" value="false" id="sterilizationAnimal2" formControlName="sterilized" checked name="sterilized">
                             <label class="custom-control-label" for="sterilizationAnimal2">Ні.</label>
                           </div>
                           <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" ngValue="true" id="sterilizationAnimal1" formControlName="sterilized"  name="sterelized">
+                            <input type="radio" class="custom-control-input" value="true" id="sterilizationAnimal1" formControlName="sterilized"  name="sterilized">
                             <label class="custom-control-label" for="sterilizationAnimal1">Так.</label>
                           </div>
                         </div>
@@ -88,7 +85,7 @@
                       <div class="animal">
                         <label for="form1" class="fas fa-pencil-alt" ></label>
                         <p>Посилання на фото тварини</p>
-                        <input type="text" id="imageUrl" class="md-textarea md-textarea-auto form-control" formControlName = "imageUrl">
+                        <input type="text" id="imageUrl" class="form-control" formControlName = "imageUrl" name="imageUrl">
                       </div>
                       <span class="text-danger"
                             *ngIf=" addAnimal.controls.description.errors && addAnimal.controls.description.touched ">
@@ -99,12 +96,15 @@
                       <div class="animal">
                         <label for="form1" class="fas fa-pencil-alt" ></label>
                         <p>Опис тварини</p>
-                        <textarea type="text" id="form1" class="md-textarea md-textarea-auto form-control" formControlName = "description"></textarea>
+                        <textarea type="text" id="form1" class="md-textarea md-textarea-auto form-control" formControlName = "description" name="description"></textarea>
                       </div>
                       <span class="text-danger"
                             *ngIf=" addAnimal.controls.description.errors && addAnimal.controls.description.touched ">
                            <br>Опис тварини обов'язковиий
                         </span>
+                    </div>
+                    <div class="form-group">
+                      <input id="shelterId" type="text" class="invisible" formControlName="shelterId" [(ngModel)]="shelterId" name="shelterId">
                     </div>
                     <!-- <div class="form-group">
                       <div class="animal">

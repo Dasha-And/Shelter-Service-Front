@@ -53,7 +53,7 @@
               </div>
             </div>
           </div>
-          <button id="submitButton1" type="submit" class="btn btn-primary">Фільтрувати</button>
+          <button id="submitButton1" class="btn btn-primary" (click)="getAnimals()">Фільтрувати</button>
           <div class="animals">
             <div class="animalsItem" *ngFor="let animal of animalsByShelter">
               <div class="animalInfo">
