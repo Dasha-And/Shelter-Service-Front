@@ -21,6 +21,9 @@ export class AnimalService {
   public getAnimalsByShelter(id: number, sterilized?: boolean, species?: string): Observable<Animal[]> {
     let params : any = {};
     console.log(species)
+    if (species == "Вид") {
+      species = undefined;
+    }
     if (sterilized != undefined) {
       params.sterilized = sterilized;
     }

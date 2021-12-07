@@ -15,12 +15,13 @@ declare const L: any;
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  public kind = ['Вид','Коти','Cобаки'];
+  public kind = ['Вид','Кіт','Собака'];
   public years = ['Вік','1','2','3','4','5','6','7','8','9','10','11'];
   public city = ['Місто','Харків','Київ','Одеса','Дніпро','Львів','Херсон','Полтава','Миколаїв','Луганськ','Суми']
   public selectedKind = '';
   public selectedYears = '';
   public selectedCity = '';
+  public selectedSterilization : boolean | undefined;
   public shelters: Shelter[] = [];
   public animalsByShelter : Animal[] = [];
   public selectedShelter! : Shelter;
@@ -46,6 +47,10 @@ export class HomeComponent implements OnInit {
   }
   changeCity(item:any){
     this.selectedCity = item;
+  }
+
+  changeSterilized(item:any) {
+    this.selectedSterilization = item;
   }
 
   public getShelters(): void {
@@ -93,14 +98,10 @@ export class HomeComponent implements OnInit {
   public getAnimals() {
     // var species: string = (<HTMLInputElement>document.getElementById("dropdownBasic4")).value;
     // console.log(species)
-    this.animalService.getAnimalsByShelter(this.selectedShelter?.id, this.selected, undefined).subscribe(
+    this.animalService.getAnimalsByShelter(this.selectedShelter?.id, this.selectedSterilization, this.selectedKind).subscribe(
       (response : Animal[]) => {
-        setTimeout(() =>
-          {
             console.log(response)
             this.animalsByShelter = response;
-          },
-          1000);
 
       }
     )
