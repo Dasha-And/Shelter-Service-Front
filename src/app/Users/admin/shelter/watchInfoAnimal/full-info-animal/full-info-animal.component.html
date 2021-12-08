@@ -5,31 +5,31 @@
       <h2>Дані про тварину</h2>
       <div class="data">
         <p class="dataTitle">Фото тварини:</p>
-        <img src="https://cdnimg.rg.ru/img/content/168/05/40/Solongoj_d_850.jpg" alt="">
+        <img src="{{animal.imageUrl}}" alt="">
       </div>
       <div class="data">
         <p class="dataTitle">Кличка тварини:</p>
-        <p>Здесь должна біть кличка</p>
+        <p>{{animal.name}}</p>
       </div>
       <div class="data">
         <p class="dataTitle">Вік тварини:</p>
-        <p>Здесь должен біть возраст</p>
+        <p>{{animal.age}}</p>
       </div>
       <div class="data">
         <p class="dataTitle">Вид тварини:</p>
-        <p>Здесь вид животного</p>
+        <p>{{animal.species}}</p>
       </div>
       <div class="data">
         <p class="dataTitle">Стать тварини:</p>
-        <p>Здесь пол животного</p>
+        <p>{{animal.gender}}</p>
       </div>
       <div class="data">
         <p class="dataTitle">Стерилізован:</p>
-        <p>Стерилизован?</p>
+        <p>{{sterilized}}</p>
       </div>
       <div class="data">
         <p class="dataTitle">Опис тварини:</p>
-        <p>Здесь описание</p>
+        <p>{{animal.description}}</p>
       </div>
     </div>
     <div class="infobox-el">

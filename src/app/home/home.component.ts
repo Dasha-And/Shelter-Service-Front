@@ -5,6 +5,7 @@ import {ShelterService} from "../service/shelter.service";
 import {Animal} from "../model/animal";
 import {AnimalService} from "../service/animal.service";
 import {timeout} from "rxjs/operators";
+import { Router } from '@angular/router';
 
 
 
@@ -19,17 +20,22 @@ export class HomeComponent implements OnInit {
   public years = ['Вік','1','2','3','4','5','6','7','8','9','10','11'];
   public city = ['Місто','Харків','Київ','Одеса','Дніпро','Львів','Херсон','Полтава','Миколаїв','Луганськ','Суми']
   public selectedKind = '';
+  public selectedKindAll = '';
   public selectedYears = '';
   public selectedCity = '';
   public selectedSterilization : boolean | undefined;
+  public selectedSterilizationAll : boolean | undefined;
   public shelters: Shelter[] = [];
   public animalsByShelter : Animal[] = [];
+  public allAnimals : Animal[] = [];
   public selectedShelter! : Shelter;
   public selected = false;
-  constructor(private shelterService : ShelterService, private animalService : AnimalService) {
+  public allShelters = false;
+  constructor(private shelterService : ShelterService, private animalService : AnimalService, private router: Router) {
     this.selectedKind = this.kind[0];
     this.selectedYears = this.years[0];
     this.selectedCity = this.city[0];
+    this.selectedKindAll = this.kind[0];
   }
 
   ngOnInit(): void {
@@ -42,6 +48,9 @@ export class HomeComponent implements OnInit {
   changeKind(item:any){
     this.selectedKind = item;
   }
+  changeKindAll(item:any){
+    this.selectedKindAll = item;
+  }
   changeYears(item:any){
     this.selectedYears = item;
   }
@@ -51,6 +60,10 @@ export class HomeComponent implements OnInit {
 
   changeSterilized(item:any) {
     this.selectedSterilization = item;
+  }
+
+  changeSterilizedAll(item:any) {
+    this.selectedSterilizationAll = item;
   }
 
   public getShelters(): void {
@@ -71,6 +84,7 @@ export class HomeComponent implements OnInit {
         }
       )
       this.selected = true;
+      this.allShelters = false;
     }
     // @ts-ignore
     var markersLayer = new L.featureGroup().addTo(map).on('click', groupClick);
@@ -103,6 +117,39 @@ export class HomeComponent implements OnInit {
             console.log(response)
             this.animalsByShelter = response;
 
+      }
+    )
+  }
+
+  goToFullInfo(id : number) {
+    this.router.navigate(['/fullInfoAnimal/:id'], {queryParams: {id: id}});
+  }
+
+  getShelter(id:number) : string{
+    var name = '';
+    this.shelterService.getShelterPage(id).subscribe(
+      (response : Shelter) => {
+            console.log(response)
+            name =  response.name;
+      }
+    )
+    return name;
+  }
+
+  searchAllShelters() {
+    this.allShelters = true;
+    this.animalService.getAnimals(this.selectedSterilizationAll, this.selectedKindAll).subscribe(
+      (response : Animal[]) => {
+            console.log(response)
+            response.forEach( (value) => {
+              this.shelterService.getShelterPage(value.shelterId).subscribe(
+                (response : Shelter) => {
+                      console.log(response)
+                      value.shelterName =  response.name;
+                }
+              )
+            })
+            this.allAnimals = response;
       }
     )
   }

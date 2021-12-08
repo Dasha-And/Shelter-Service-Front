@@ -3,7 +3,8 @@
   <app-header-unreg></app-header-unreg>
   <div class="findShelter container-fluid row col">
     <div class="findShelterItems col-5">
-      <div class="shelter " data-bs-spy="scroll" >
+      <div class="shelter " data-bs-spy="scroll" *ngIf="!allShelters">
+
         <div class="shelterInfo" *ngIf="selected">
           <h3>{{selectedShelter?.name}}</h3>
           <p>Довгота: {{selectedShelter?.longitude}}</p>
@@ -68,28 +69,36 @@
                 </div>
               </div>
               <p>{{animal.description}}</p>
-              <a href="#" routerLink="/fullInfoAnimal">Більше інформації</a>
+              <a (click)="goToFullInfo(animal.id)" style="cursor: pointer; color: blue;">Більше інформації</a>
             </div>
 
-<!--            <div class="animalsItem">-->
-<!--              <div class="animalInfo">-->
-<!--                <div class="animalsItemInfo">-->
-<!--                  <p style="font-weight: bold; font-size: 16px">Джек</p>-->
-<!--                  <p >Вік: 1 рік </p>-->
-<!--                  <p >Хлопчик</p>-->
-<!--                  <p >Вага: 4кг</p>-->
-<!--                </div>-->
-<!--                <div class="animalsItemPhoto">-->
-<!--                  <img src="https://zdorovaya-eda.com/sites/default/files/zdorovoe-pitanie/2-1/1c2fc6fe8a8c.jpg" alt="">-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <p>Грайливий,добрий,<br>-->
-<!--                активний,любить сидіти на ручках,<br>шукає дім</p>-->
-<!--              <a href="#" routerLink="/fullInfoAnimal">Більше інформації</a>-->
-<!--            </div>-->
+
           </div>
         </div>
         <div *ngIf="!selected"><p style="text-align: center; margin-top: 20px; font-size: 21px">Оберіть притулок на карті шоб побачити його інформацію тут</p></div>
+      </div>
+
+      <div *ngIf="allShelters" class="shelter">
+        <div class="animals">
+          <div class="animalsItem" *ngFor="let animal of allAnimals">
+            <div class="animalInfo">
+              <div class="animalsItemInfo" >
+                <p style="font-weight: bold; font-size: 16px">{{animal.name}}</p>
+                <p >Вік: {{animal.age}}</p>
+                <p >{{animal.gender}}</p>
+                <p >{{animal.species}}</p>
+                <p>Притулок: {{animal.shelterName}}</p>
+              </div>
+              <div class="animalsItemPhoto">
+                <img src="{{animal.imageUrl}}" alt="" style="object-fit: cover;">
+              </div>
+            </div>
+            <p>{{animal.description}}</p>
+            <a (click)="goToFullInfo(animal.id)" style="cursor: pointer; color: blue;">Більше інформації</a>
+          </div>
+
+
+        </div>
       </div>
     </div>
     <div class="findShelterItems col-7">
@@ -99,9 +108,9 @@
           <div class="choiceDropdown">
             <div class="col">
               <div ngbDropdown class="d-inline-block ">
-                <button class="btn btn-outline-primary dropdown-toggle " id="dropdownBasic1" ngbDropdownToggle>{{selectedKind}}</button>
+                <button class="btn btn-outline-primary dropdown-toggle " id="dropdownBasic1" ngbDropdownToggle>{{selectedKindAll}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button ngbDropdownItem (click)="changeKind(item)" *ngFor = "let item of kind"
+                  <button ngbDropdownItem (click)="changeKindAll(item)" *ngFor = "let item of kind"
                   >{{item}}</button>
                 </div>
               </div>
@@ -114,33 +123,33 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <!-- <div class="col">
               <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>{{selectedCity}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
                   <button ngbDropdownItem  (click)="changeCity(item)" *ngFor = "let item of city">{{item}}</button>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="radioChoice col-7">
             <p class="radioP">Cтерилізовані</p>
             <div class="radio">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (click)="changeSterilizedAll(true)">
                 <label class="form-check-label" for="flexRadioDefault1">
                   Так
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="changeSterilizedAll(false)">
                 <label class="form-check-label" for="flexRadioDefault2">
                   Ні
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" (click)="changeSterilizedAll(undefined)">
                 <label class="form-check-label" for="flexRadioDefault2">
                   Немає різниці
                 </label>
@@ -148,7 +157,7 @@
             </div>
           </div>
         </div>
-        <button id="submitButton" type="submit" class="btn btn-primary">Шукати</button>
+        <button id="submitButton" type="submit" class="btn btn-primary" (click)="searchAllShelters()">Шукати</button>
         <div id="map" class="col-6"></div>
       </div>
     </div>

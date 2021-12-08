@@ -20,7 +20,7 @@
       </div>
     </div>
     <p>{{animal.description}}</p>
-    <a routerLink="/editAnimal" class="btn btn-primary" aria-current="page" href="#" id="edit">Редагувати тваринку</a>
+    <a (click)="goToEditAnimal(animal)" class="btn btn-primary" aria-current="page" id="edit">Редагувати тваринку</a>
   </div>
   </div>
   

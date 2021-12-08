@@ -8,4 +8,5 @@ export interface Animal {
   imageUrl: string;
   species: string;
   shelterId: number;
+  shelterName: string;
 }

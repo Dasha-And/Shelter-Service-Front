@@ -33,6 +33,12 @@ export class ShelterComponent implements OnInit {
   goToAddAnimal() {
     this.router.navigate(['/addAnimals/:shelterId'], {queryParams: {shelterId: this.shelterId}});
   }
+  goToEditAnimal(animal: Animal): void {
+    this.route.queryParams.subscribe(params => {
+      this.router.navigate(['/editAnimal/:id, shelterId'], {queryParams: {id: animal.id, shelterId: this.shelterId}});
+
+    });
+  }
   getAge(animal:Animal):number {
     this.animalService.getAge(animal.id).subscribe(
       (response : number) => {

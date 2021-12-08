@@ -14,8 +14,19 @@ export class AnimalService {
   private apiServerUrl = environment.apiBaseUrl;
   constructor(private http : HttpClient) { }
 
-  public getAnimals(): Observable<Animal[]> {
-    return this.http.get<Animal[]>(`${this.apiServerUrl}/animals`);
+  public getAnimals(sterilized?: boolean, species?: string): Observable<Animal[]> {
+    let params : any = {};
+    console.log(species)
+    if (species == "Вид") {
+      species = undefined;
+    }
+    if (sterilized != undefined) {
+      params.sterilized = sterilized;
+    }
+    if (species != undefined) {
+      params.species = species;
+    }
+    return this.http.get<Animal[]>(`${this.apiServerUrl}/animals`, {params: params});
   }
 
   public getAnimalsByShelter(id: number, sterilized?: boolean, species?: string): Observable<Animal[]> {
@@ -28,7 +39,6 @@ export class AnimalService {
       params.sterilized = sterilized;
     }
     if (species != undefined) {
-      console.log("ok")
       params.species = species;
     }
     console.log(params)

@@ -40,8 +40,8 @@ const appRoutes: Routes = [
   { path: 'changeAccount/:shelterId, userId', component: ChangeAccountDataComponent},
   { path: 'changeShelter/:shelterId, userId', component: ChangeShelterDataComponent },
   { path: 'addAnimals/:shelterId' , component: AddAnimalComponent},
-  { path: 'editAnimal' , component: EditAnimalComponent},
-  { path: 'fullInfoAnimal' , component: FullInfoAnimalComponent},
+  { path: 'editAnimal/:id, shelterId' , component: EditAnimalComponent},
+  { path: 'fullInfoAnimal/:id' , component: FullInfoAnimalComponent},
 ]
 
 @NgModule({

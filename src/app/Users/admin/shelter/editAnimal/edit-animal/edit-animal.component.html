@@ -8,10 +8,15 @@
           <div class="card-body">
             <form [formGroup]="editAnimal">
               <h2 class="text-center">Змініть дані про тварину</h2>
+
+              <div class="form-group">
+                <input id="id" type="text" class="invisible" formControlName="id" ngModel="{{animal?.id}}" name="id">
+              </div>
+
               <div class="form-group">
 
                 <label for="name" class="fas fa-user"></label>
-                <input id="name" type="text" placeholder="Введіть кличку" formControlName="name" ngModel>
+                <input id="name" type="text" placeholder="Введіть кличку" formControlName="name" ngModel="{{animal?.name}}">
                 <span class="text-danger"
                       *ngIf="editAnimal.controls.name.errors && editAnimal.controls.name.touched">
                            <br>Кличка тварини обов'язкова
@@ -21,11 +26,11 @@
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-append">
-                    <button id="buttonAge" class="fas fa-calendar" (click)="d.toggle()" type="button"></button>
+                    <button id="buttonAge" class="fas fa-calendar" type="button"></button>
                   </div>
-                  <input  id="ageAnimal" type="text" placeholder="Вік тварини" formControlName="ageAnimal" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                  <input  id="age" type="text" placeholder="Вік тварини" formControlName="age" ngModel="{{animal?.age}}">
                   <span class="text-danger"
-                        *ngIf=" editAnimal.controls.ageAnimal.errors && editAnimal.controls.ageAnimal.touched ">
+                        *ngIf=" editAnimal.controls.age.errors && editAnimal.controls.age.touched ">
                            <br>Вік тварини обов'язковиий
                         </span>
                 </div>
@@ -38,12 +43,12 @@
                   <p>Вид тварини</p>
                   <div class="radioChoice1">
                     <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" value="Кіт" id="typeAnimal1" formControlName="typeAnimal"  >
+                      <input type="radio" class="custom-control-input" value="Кіт" id="species" formControlName="species" ngModel="{{animal?.species}}">
                       <label class="custom-control-label" for="typeAnimal1">Кіт</label>
                     </div>
 
                     <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" value="Собака" id="typeAnimal2" formControlName="typeAnimal" checked >
+                      <input type="radio" class="custom-control-input" value="Собака" id="species" formControlName="species" ngModel="{{animal?.species}}">
                       <label class="custom-control-label" for="typeAnimal2">Собака</label>
                     </div>
                   </div>
@@ -56,12 +61,12 @@
                   <p>Стать тварини</p>
                   <div class="radioChoice2">
                     <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" value="Чоловічий" id="sexAnimal1" formControlName="sexAnimal"  >
+                      <input type="radio" class="custom-control-input" value="Хлопчик" id="gender" formControlName="gender" ngModel="{{animal?.gender}}" >
                       <label class="custom-control-label" for="sexAnimal1"> Ч . </label>
                     </div>
 
                     <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" value="Жіночий" id="sexAnimal2" formControlName="sexAnimal" checked >
+                      <input type="radio" class="custom-control-input" value="Дiвчинка" id="gender" formControlName="gender" ngModel="{{animal?.gender}}" >
                       <label class="custom-control-label" for="sexAnimal2">Жін.</label>
                     </div>
                   </div>
@@ -73,12 +78,12 @@
                   <label  class="fas fa-paw"></label>
                   <p>Стерилізовані</p>
                   <div class="radioChoice3">
-                    <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" value="Ні" id="sterilizationAnimal2" formControlName="sterilizationAnimal" checked >
+                    <div class="custom-control custom-radio" >
+                      <input type="radio" class="custom-control-input" value="false" id="sterilized" formControlName="sterilized" ngModel="{{animal?.sterilized}}" >
                       <label class="custom-control-label" for="sterilizationAnimal2">Ні.</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" value="Так" id="sterilizationAnimal1" formControlName="sterilizationAnimal"  >
+                      <input type="radio" class="custom-control-input" value="true" id="sterilized" formControlName="sterilized" ngModel="{{animal?.sterilized}}">
                       <label class="custom-control-label" for="sterilizationAnimal1">Так.</label>
                     </div>
                   </div>
@@ -88,7 +93,7 @@
                 <div class="animal">
                   <label for="form1" class="fas fa-pencil-alt" ></label>
                   <p>Опис тварини</p>
-                  <textarea type="text" id="form1" class="md-textarea md-textarea-auto form-control" formControlName = "description"></textarea>
+                  <textarea type="text" id="description" class="md-textarea md-textarea-auto form-control" formControlName = "description" ngModel="{{animal?.description}}"></textarea>
                 </div>
                 <span class="text-danger"
                       *ngIf=" editAnimal.controls.description.errors && editAnimal.controls.description.touched ">
@@ -100,17 +105,21 @@
                 <div class="animal">
                   <label for="input-file-id" class="fas fa-file-image" ></label>
                   <p>Фото тварини</p>
-                  <input class="ng-hide" id="input-file-id" multiple type="file" formControlName = "photoAnimal"/>
+                  <input class="ng-hide" id="imageUrl" type="text" formControlName = "imageUrl" ngModel="{{animal?.imageUrl}}"/>
                 </div>
                 <span class="text-danger"
-                      *ngIf=" editAnimal.controls.photoAnimal.errors && editAnimal.controls.photoAnimal.touched ">
+                      *ngIf=" editAnimal.controls.imageUrl.errors && editAnimal.controls.imageUrl.touched ">
                            <br>Фото тварини обов'язковиий
                         </span>
               </div>
 
+              <div class="form-group">
+                <input id="shelterId" type="text" class="invisible" formControlName="shelterId" [(ngModel)]="shelterId" name="shelterId">
+              </div>
+
               <div class="text-center">
                 <button id="submitButton" type="submit" class="btn btn-primary"
-                        [disabled]="!editAnimal.valid">Змінити дані</button>
+                        [disabled]="!editAnimal.valid" (click)="change()">Змінити дані</button>
               </div>
             </form>
           </div>
