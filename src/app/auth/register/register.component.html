@@ -1,100 +1,118 @@
 <div id="appContainer">
-   <app-header-unreg></app-header-unreg>
-   <div class="register">
-      <div class="container-fluid">
-         <div class="row">
-            <!-- <div class="col-12"> -->
+  <app-header-unreg></app-header-unreg>
+  <div class="register">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- <div class="col-12"> -->
 
 
-            <div id="CardStyle" class="card justify-content-center">
+        <div id="CardStyle" class="card justify-content-center">
 
-               <div>
-                  <button class="btn" routerLink="/login" [class.btn-outline-primary]="flag" type="button"
-                     style="width: 50%;" (click)="apply('login')">Увійти</button>
-                  <button class="btn" routerLink="/register" type="button" style="width: 50%;" (click)="apply('reg')"
-                     disabled>Реєстрація</button>
-               </div>
+          <div>
+            <button class="btn" routerLink="/login" [class.btn-outline-primary]="flag" type="button"
+                    style="width: 50%;" (click)="apply('login')">Увійти
+            </button>
+            <button class="btn" routerLink="/register" type="button" style="width: 50%;" (click)="apply('reg')"
+                    disabled>Реєстрація
+            </button>
+          </div>
 
-               <div class="card-body">
-                  <div *ngIf="flag">
-                     <form #userForm="ngForm" [formGroup]="regForm" (ngSubmit)="register()">
-                        <div class="form-group">
+          <div class="card-body">
+            <div *ngIf="flag">
+              <form #userForm="ngForm" [formGroup]="regForm" (ngSubmit)="register()">
+                <div class="form-group">
 
-                           <label for="name" class="fas fa-user"></label>
-                           <input id="name" type="text" placeholder="Введіть ім'я" formControlName="name" ngModel>
-                           <span class="text-danger"
-                              *ngIf="regForm.controls.name.errors && regForm.controls.name.touched">
+                  <label for="name" class="fas fa-user"></label>
+                  <input id="name" type="text" placeholder="Введіть ім'я" formControlName="name" ngModel>
+                  <span class="text-danger"
+                        *ngIf="regForm.controls.name.errors && regForm.controls.name.touched">
                               <br>Ім'я обов'язкове
                            </span>
-                        </div>
+                </div>
 
 
-                        <div class="form-group">
+                <div class="form-group">
 
-                           <label for="surname" class="fas fa-user"></label>
-                           <input id="surname" type="text" placeholder="Введіть прізвище" formControlName="surname"
-                              ngModel>
-                           <span class="text-danger"
-                              *ngIf="regForm.controls.surname.errors && regForm.controls.surname.touched">
+                  <label for="surname" class="fas fa-user"></label>
+                  <input id="surname" type="text" placeholder="Введіть прізвище" formControlName="surname"
+                         ngModel>
+                  <span class="text-danger"
+                        *ngIf="regForm.controls.surname.errors && regForm.controls.surname.touched">
                               <br>Прізвище обов'язкове
                            </span>
-                        </div>
+                </div>
 
 
-                        <div class="form-group">
+                <div class="form-group">
 
-                           <label for="phone" class="fas fa-mobile"></label>
-                           <input id="phone" type="tel" placeholder="Номер мобільного телефону" formControlName="phone">
-                           <span class="text-danger"
-                              *ngIf="regForm.controls.phone.errors && regForm.controls.phone.touched">
+                  <label for="phone" class="fas fa-mobile"></label>
+                  <input id="phone" type="tel" placeholder="Номер мобільного телефону" formControlName="phone">
+                  <span class="text-danger"
+                        *ngIf="regForm.controls.phone.errors && regForm.controls.phone.touched">
                               <br>Недійсний номер мобільного телефону. Код країни обов'язковий
                            </span>
-                        </div>
-                        <div class="form-group">
-                           <label for="email" class='fas fa-envelope'></label>
-                           <input id="email" type="email" placeholder="Адреса електронної пошти "
-                              formControlName="email" ngModel>
-                           <span class="text-danger"
-                              *ngIf="regForm.controls.email.errors && regForm.controls.email.touched">
+                </div>
+                <div class="form-group">
+                  <label for="email" class='fas fa-envelope'></label>
+                  <input id="email" type="email" placeholder="Адреса електронної пошти "
+                         formControlName="email" ngModel>
+                  <span class="text-danger"
+                        *ngIf="regForm.controls.email.errors && regForm.controls.email.touched">
                               <br>Невірна адреса електронної пошти</span>
-                        </div>
+                </div>
 
-                        <div class="form-group">
-                           <label id="password" for="password" class="fas fa-lock"></label>
-                           <input type="password" placeholder="Пароль " formControlName="password" ngModel>
-                           <span class="text-danger"
-                              *ngIf="regForm.controls.password.errors && regForm.controls.password.touched"><br>
+                <div class="form-group">
+                  <label id="password" for="password" class="fas fa-lock"></label>
+                  <input type="password" placeholder="Пароль " formControlName="password" ngModel>
+                  <span class="text-danger"
+                        *ngIf="regForm.controls.password.errors && regForm.controls.password.touched"><br>
                               Необхідний мінімум 8-значний пароль
                            </span>
-                        </div>
-                        <div class="form-group">
-                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                                 formControlName="role" ngModel>
-                              <label class="form-check-label" for="flexCheckDefault">
-                                 Я є адміністратором приюту
-                              </label>
-                           </div>
-                        </div>
-                        <div class="text-center">
-                           <button id="submitButton" type="submit" class="btn btn-primary"
-                              [disabled]="!regForm.valid">Зареєструватись</button>
-                        </div>
+                </div>
 
-
-                        <div class="text-center text-success" *ngIf="successMessage">
-                           {{regForm.value.email}} {{successMessage}}
-
-                        </div>
-
-                     </form>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                           formControlName="role" ngModel>
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Я є адміністратором приюту
+                    </label>
                   </div>
-               </div>
+                </div>
+                <div class="text-center">
+                  <button id="submitButton" type="submit" class="btn btn-primary"
+                          [disabled]="!regForm.valid">Зареєструватись
+                  </button>
+                </div>
 
+                <div class="register-with">
+                  <div class="row">
+                    <div class="btn_reg">
+                      <button class="btn reg_google">
+                        <div>
+                          <img width="25px" style="margin-bottom:3px; margin-right: 5px;" alt="Google reg"
+                               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+                          Register with Google
+                        </div>
+                      </button>
+                    </div>
+                    <div class="btn_reg">
+                      <button class="btn reg_facebook">
+                        <div>
+                          <img width="35px" style="margin-bottom:3px; margin-right: 3px;" alt="Facebook reg"
+                               src="https://thumbs.dreamstime.com/b/print-204672012.jpg"/>
+                          Register with Facebook
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
+          </div>
 
-         </div>
+        </div>
       </div>
-      <!-- </div> -->
-   </div>
+    </div>
+  </div>
 </div>
