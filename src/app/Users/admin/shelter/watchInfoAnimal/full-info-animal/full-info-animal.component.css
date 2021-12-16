@@ -1,5 +1,5 @@
 #appContainer{
-  height: 120%;
+  height: 160%;
   width: 100%;
   max-width: 100%;
   bottom: 80px;
@@ -13,13 +13,14 @@
   background-color: #fff;
   margin: 60px 50px;
   max-width: 600px;
+  width: 550px;
   color: #000;
-  padding: 20px 0;
+  padding: 20px 15px;
   position: relative;
   text-shadow: none;
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
   border: 1px solid #7a7b7e;
-  width: 550px;
+
   height: 100%;
   border-radius: 10px;
   text-align: center;
@@ -36,21 +37,23 @@
   justify-content: space-between;
   position: relative;
   padding: 5px 10px ;
-  font-size: 20px;
+  font-size: 22px;
   font-family: 'Montserrat Alternates', sans-serif;
 }
 .dataTitle{
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 7px;
   color: #7a7b7e;
 }
 .data img {
-  width: 50%;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 20px;
   border-radius: 20px;
 }
 .box-vaccine{
   background-color: #fff;
-  margin: 60px 0px;
+  margin: 60px 0;
   max-width:100%;
   color: #000;
   padding: 20px 20px;
@@ -68,9 +71,7 @@
   text-align: center;
   margin-bottom: 20px;
 }
-table{
 
-}
 .data-book h2{
   position: relative;
   font-family: 'Montserrat Alternates', sans-serif;
@@ -78,4 +79,38 @@ table{
   margin-bottom: 20px;
 }
 
+th {
+  font-size: 22px;
+  font-weight: 300;
+  padding: 12px 10px;
+  border-bottom: 2px solid #F56433;
+  color: #F56433;
+}
 
+table {
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 5px;
+  background: #E1E3E0;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+th {
+  font-size: 18px;
+  font-weight: 300;
+  padding: 12px 10px;
+  border: 1px solid black;
+  color: #F56433;
+  border-radius: 20px;
+}
+tr th{
+  border: 1px solid black;
+}
+td {
+  padding: 10px;
+  border: 1px solid black;
+}
+button .btn .check-book{
+  width: 150px;
+}
