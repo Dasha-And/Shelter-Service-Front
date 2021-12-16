@@ -24,6 +24,7 @@ import { AddAnimalComponent } from './Users/admin/shelter/addAnimal/add-animal/a
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditAnimalComponent } from './Users/admin/shelter/editAnimal/edit-animal/edit-animal.component';
 import { FullInfoAnimalComponent } from './Users/admin/shelter/watchInfoAnimal/full-info-animal/full-info-animal.component';
+import { AngularNotificationModule} from 'angular-notification-alert';
 
 
 
@@ -63,9 +64,6 @@ const appRoutes: Routes = [
     AddAnimalComponent,
     EditAnimalComponent,
     FullInfoAnimalComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -77,6 +75,7 @@ const appRoutes: Routes = [
     CommonModule,
     NgbDropdownModule,
     NgbModule,
+    AngularNotificationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
