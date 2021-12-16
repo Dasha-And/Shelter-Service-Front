@@ -50,3 +50,29 @@ form{
    overflow-x:  hidden;
    background: transparent url(../../img/bg1.png) repeat; background-attachment: fixed !important;
 }
+.sign-facebook {
+  max-width: 300px;
+  background-color: white;
+  border: none;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  left: 120px;
+}
+.sign-google{
+  max-width: 280px;
+  background-color: white;
+  border: none;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+  left: 120px;
+}
+
+.register-with{
+  flex-wrap: wrap;
+}
