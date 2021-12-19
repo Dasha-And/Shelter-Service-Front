@@ -34,4 +34,10 @@ export class ShelterService {
       .set('id', id);
     return this.http.put<Shelter>(`${this.apiServerUrl}/update_shelter`, shelter, {params: params});
   }
+
+  public getTakenPlaces(id : number) : Observable<number> {
+    let params = new HttpParams()
+      .set('id', id);
+    return this.http.get<number>(`${this.apiServerUrl}/get_taken_places`, {params: params});
+  }
 }

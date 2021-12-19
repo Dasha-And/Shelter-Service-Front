@@ -6,4 +6,6 @@ export interface Shelter {
   phone: string;
   email: string;
   siteUrl: string;
+  capacity: number;
+  freePlaces: number;
 }

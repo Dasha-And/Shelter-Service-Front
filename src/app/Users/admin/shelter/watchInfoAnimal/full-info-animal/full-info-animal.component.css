@@ -114,3 +114,8 @@ td {
 button .btn .check-book{
   width: 150px;
 }
+p{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}

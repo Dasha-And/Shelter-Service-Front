@@ -14,7 +14,9 @@ export class FullInfoAnimalComponent implements OnInit {
 
   animal!: Animal;
   sterilized!: string;
-
+  booked: boolean = false
+  public days = ['2021-12-20', '2021-12-21', '2021-12-22', '2021-12-23', '2021-12-24', '2021-12-21', '2021-12-22']
+  public times = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00']
   constructor(private route: ActivatedRoute, private animalService: AnimalService) {
   }
 
@@ -29,6 +31,9 @@ export class FullInfoAnimalComponent implements OnInit {
             this.sterilized = "Нi"
           } else {
             this.sterilized = "Так"
+          }
+          if (response.status == 'BOOKED') {
+            this.booked = true
           }
         },
         (error: HttpErrorResponse) => {
@@ -53,6 +58,15 @@ export class FullInfoAnimalComponent implements OnInit {
           'Тварина успішно заброньована.',
           'success'
         )
+        this.animal.status = 'BOOKED'
+        console.log(this.animal.status)
+        this.animalService.updateAnimal(this.animal).subscribe(
+          (response : Animal) => {
+            console.log(response)
+            window.location.reload();
+          }
+        )
+
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Відміна',

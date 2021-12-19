@@ -29,10 +29,10 @@
       <div class="data">
         <p>{{animal.description}}</p>
       </div>
-      <button class="btn check-book btn-primary" style="width: 150px;  margin-left: 130px;" *ngIf="'';else bookAnimal">Гуляти</button>
+      <button class="btn check-book btn-primary" style="width: 150px;  margin-left: 130px;" *ngIf="!booked;else bookAnimal" (click)="alertConfirmation()">Забрати додому</button>
       <ng-template #bookAnimal>
         <button class="btn check-book btn-secondary" style="width: 250px; margin-left: 130px;">
-          Тварина вже забронювали
+          Тварина вже забронювана
         </button>
       </ng-template>
     </div>
@@ -61,391 +61,92 @@
 
       </div>
       <div class="data-book">
-        <h2>Когда можно забрать животное?</h2>
-        <table class="table " style="background-color: white">
-          <thead>
-          <tr><th colspan="8">Грудень 2021</th></tr>
-          <tr>
-            <td></td>
-            <td>Понеділок</td>
-            <td>Вівторок</td>
-            <td>Середа</td>
-            <td>Четвер</td>
-            <td>П'ятниця</td>
-            <td>Субота</td>
-            <td>Неділя</td>
-          </tr>
-          </thead>
+        <h2>Коли можна приїхати познайомитися?</h2>
+        <p>Ви можете обрати час щоб пограти чи погуляти з твариною, приїхавши до приюту</p>
 
-          <tbody>
-          <tr>
+        <div style="width: 700px;">
+          <div class="form-group">
+              <label for="date">Оберіть дату</label>
+              <input  class="form-control" id="date" type="date" placeholder="Оберіть дату" formControlName="date">
+          </div>
+          <div class="form-group">
+              <label for="time">Оберіть час</label>
+              <select id="time" name="time" class="form-select">
+                <option value="" *ngFor="let time of times">{{time}}</option>
+              </select>
+          </div>
+        </div>
+<!--        <table class="table " style="background-color: white">-->
+<!--          <thead>-->
+<!--          <tr><th colspan="8">Грудень 2021</th></tr>-->
+<!--          <tr>-->
+<!--            <td></td>-->
+<!--            <td>2021-12-20</td>-->
+<!--            <td>2021-12-21</td>-->
+<!--            <td>2021-12-22</td>-->
+<!--            <td>2021-12-23</td>-->
+<!--            <td>2021-12-24</td>-->
+<!--            <td>2021-12-25</td>-->
+<!--            <td>2021-12-26</td>-->
+<!--          </tr>-->
+<!--          </thead>-->
 
-            <th scope="row">10:00</th>
+<!--          <tbody>-->
+<!--          <tr *ngFor="let time of times">-->
 
-            <td><button class="btn  btn-primary" (click)="alertConfirmation()">Взяти</button></td>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
+<!--            <th scope="row">{{time}}</th>-->
 
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
+<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
+<!--            <ng-template #loggedOut>-->
+<!--              <button class="btn btn-secondary">-->
+<!--                Бронь-->
+<!--              </button>-->
+<!--            </ng-template>-->
 
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
+<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
+<!--            <ng-template #loggedOut>-->
+<!--              <button class="btn btn-secondary">-->
+<!--                Бронь-->
+<!--              </button>-->
+<!--            </ng-template>-->
 
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
+<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
+<!--            <ng-template #loggedOut>-->
+<!--              <button class="btn btn-secondary">-->
+<!--                Бронь-->
+<!--              </button>-->
+<!--            </ng-template>-->
 
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
+<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
+<!--            <ng-template #loggedOut>-->
+<!--              <button class="btn btn-secondary">-->
+<!--                Бронь-->
+<!--              </button>-->
+<!--            </ng-template>-->
 
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-          </tr>
+<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
+<!--            <ng-template #loggedOut>-->
+<!--              <button class="btn btn-secondary">-->
+<!--                Бронь-->
+<!--              </button>-->
+<!--            </ng-template>-->
 
+<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
+<!--            <ng-template #loggedOut>-->
+<!--              <button class="btn btn-secondary">-->
+<!--                Бронь-->
+<!--              </button>-->
+<!--            </ng-template>-->
 
-          <tr>
-            <th scope="row">11:00</th>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-          </tr>
-          <tr>
-            <th scope="row">12:00</th>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-          </tr>
-          <tr>
-            <th scope="row">14:00</th>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-
-          </tr>
-          <tr>
-            <th scope="row">15:00</th>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-          </tr>
-          <tr>
-            <th scope="row">16:00</th>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-          </tr>
-          <tr>
-            <th scope="row">17:00</th>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-          </tr>
-          <tr>
-            <th scope="row">18:00</th>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>
-            <ng-template #loggedOut>
-              <button class="btn btn-secondary">
-                Бронь
-              </button>
-            </ng-template>
-
-          </tr>
-          </tbody>
-        </table>
+<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
+<!--            <ng-template #loggedOut>-->
+<!--              <button class="btn btn-secondary">-->
+<!--                Бронь-->
+<!--              </button>-->
+<!--            </ng-template>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
       </div>
     </div>
   </div>

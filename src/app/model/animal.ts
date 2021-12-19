@@ -9,4 +9,5 @@ export interface Animal {
   species: string;
   shelterId: number;
   shelterName: string;
+  status: string;
 }
