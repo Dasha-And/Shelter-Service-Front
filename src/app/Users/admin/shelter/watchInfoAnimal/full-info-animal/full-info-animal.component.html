@@ -39,44 +39,57 @@
     <div class="infobox-el">
       <div class="box-vaccine">
         <h2>Дані про вакцинацію</h2>
-        <!--<div class="data">
-          <p class="">Тварина ще не вакцинована</p>
-        </div>-->
-        <div class="data">
-          <p class="dataTitle">Назва вакцинації</p>
-          <p>назва</p>
-        </div>
-        <div class="data">
-          <p class="dataTitle">Дата вакцинації</p>
-          <p>дата</p>
-        </div>
-        <div class="data">
-          <p class="dataTitle">Доза вакцинації</p>
-          <p>доза</p>
-        </div>
-        <div class="data">
-          <p class="dataTitle">Вакцина от:</p>
-          <p>от чего</p>
+        <table class="table " style="background-color: white">
+          <thead>
+          <tr></tr>
+          <tr>
+            <td>Назва вакцини</td>
+            <td>Дата вакцінациї</td>
+            <td>Доза</td>
+            <td>Хвороба</td>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let vaccination of vaccinations">
+            <td scope="row">{{vaccination.vaccine_name}}</td>
+            <td scope="row">{{vaccination.date}}</td>
+            <td scope="row">{{vaccination.doze}}</td>
+            <td scope="row">{{vaccination.disease}}</td>
+          </tr>
+          </tbody>
+        </table>
         </div>
 
-      </div>
-      <div class="data-book">
-        <h2>Коли можна приїхати познайомитися?</h2>
-        <p>Ви можете обрати час щоб пограти чи погуляти з твариною, приїхавши до приюту</p>
+              <div class="data-book">
+                <h2>Коли можна приїхати познайомитися?</h2>
+                <p>Ви можете обрати час щоб пограти чи погуляти з твариною, приїхавши до приюту</p>
 
-        <div style="width: 700px;">
-          <div class="form-group">
-              <label for="date">Оберіть дату</label>
-              <input  class="form-control" id="date" type="date" placeholder="Оберіть дату" formControlName="date">
-          </div>
-          <div class="form-group">
-              <label for="time">Оберіть час</label>
-              <select id="time" name="time" class="form-select">
-                <option value="" *ngFor="let time of times">{{time}}</option>
-              </select>
-          </div>
-        </div>
-<!--        <table class="table " style="background-color: white">-->
+                <div style="width: 700px;">
+                  <div class="form-group">
+                      <label for="data">Оберіть дату</label>
+                      <input  class="form-control datepicker" id="data" type="date" placeholder="Оберіть дату" name="data" (change)="showTime()">
+                  </div>
+                  <div class="form-group">
+                      <label for="time">Оберіть час</label>
+                      <select id="time" name="time" class="form-select">
+                        <option value="{{time}}" *ngFor="let time of times">{{time}}</option>
+                      </select>
+                  </div>
+                </div><script type="text/javascript">
+
+                $("#data").attr('startDate', new Date().toString());
+
+              </script>
+                <form action="" (ngSubmit)="book()" [formGroup]="addBooking">
+                  <input id="date" type="datetime-local" name="date" [ngModel]="data + 'T' + time" formControlName="date">
+                  <input id="animalId" type="text" name="animalId" formControlName="animalId" ngModel="{{animal.id}}">
+                  <div class="text-center">
+                    <button id="submitButton" type="submit" class="btn btn-primary" (click)="bookingConfirmation()">Забронюваті дату та час</button>
+                  </div>
+                </form>
+
+        <!--        <table class="table " style="background-color: white">-->
 <!--          <thead>-->
 <!--          <tr><th colspan="8">Грудень 2021</th></tr>-->
 <!--          <tr>-->

@@ -3,28 +3,28 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 // import { environment } from 'src/environments/environment';
 import { environment } from 'src/environments/environment.prod';
-import { Bookings } from '../model/bookings';
+import { AnimalVaccination } from '../model/animalVaccination';
 import {User} from "../model/user";
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookingsService {
+export class AnimalVaccinationService {
   private apiServerUrl = environment.apiBaseUrl;
   constructor(private http : HttpClient) { }
 
-  public getBookingsByAnimal(animalId: number): Observable<Bookings[]> {
+  public getAnimalVaccinationByAnimal(animalId: number): Observable<AnimalVaccination[]> {
     let params : any = {};
     params.animalId = animalId;
     console.log(params)
-    return this.http.get<Bookings[]>(`${this.apiServerUrl}/bookings`, {params: params});
+    return this.http.get<AnimalVaccination[]>(`${this.apiServerUrl}/animal_vaccinations`, {params: params});
   }
 
 
-  public addBookings(bookings : Bookings): Observable<Bookings> {
-    console.log(bookings);
-    return this.http.post<Bookings>(`${this.apiServerUrl}/create_booking`, bookings);
+  public addAnimalVaccination(animalVaccination : AnimalVaccination): Observable<AnimalVaccination> {
+    console.log(animalVaccination);
+    return this.http.post<AnimalVaccination>(`${this.apiServerUrl}/create_animal_vaccination`, animalVaccination);
   }
 
 }
