@@ -82,84 +82,12 @@
 
               </script>
                 <form action="" (ngSubmit)="book()" [formGroup]="addBooking">
-                  <input id="date" type="datetime-local" name="date" [ngModel]="data + 'T' + time" formControlName="date">
-                  <input id="animalId" type="text" name="animalId" formControlName="animalId" ngModel="{{animal.id}}">
+                  <input id="date" type="datetime-local" name="date" [ngModel]="data + 'T' + time" formControlName="date" class="invisible">
+                  <input id="animalId" type="text" name="animalId" formControlName="animalId" ngModel="{{animal.id}}" class="invisible">
                   <div class="text-center">
                     <button id="submitButton" type="submit" class="btn btn-primary" (click)="bookingConfirmation()">Забронюваті дату та час</button>
                   </div>
                 </form>
-
-        <!--        <table class="table " style="background-color: white">-->
-<!--          <thead>-->
-<!--          <tr><th colspan="8">Грудень 2021</th></tr>-->
-<!--          <tr>-->
-<!--            <td></td>-->
-<!--            <td>2021-12-20</td>-->
-<!--            <td>2021-12-21</td>-->
-<!--            <td>2021-12-22</td>-->
-<!--            <td>2021-12-23</td>-->
-<!--            <td>2021-12-24</td>-->
-<!--            <td>2021-12-25</td>-->
-<!--            <td>2021-12-26</td>-->
-<!--          </tr>-->
-<!--          </thead>-->
-
-<!--          <tbody>-->
-<!--          <tr *ngFor="let time of times">-->
-
-<!--            <th scope="row">{{time}}</th>-->
-
-<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
-<!--            <ng-template #loggedOut>-->
-<!--              <button class="btn btn-secondary">-->
-<!--                Бронь-->
-<!--              </button>-->
-<!--            </ng-template>-->
-
-<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
-<!--            <ng-template #loggedOut>-->
-<!--              <button class="btn btn-secondary">-->
-<!--                Бронь-->
-<!--              </button>-->
-<!--            </ng-template>-->
-
-<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
-<!--            <ng-template #loggedOut>-->
-<!--              <button class="btn btn-secondary">-->
-<!--                Бронь-->
-<!--              </button>-->
-<!--            </ng-template>-->
-
-<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
-<!--            <ng-template #loggedOut>-->
-<!--              <button class="btn btn-secondary">-->
-<!--                Бронь-->
-<!--              </button>-->
-<!--            </ng-template>-->
-
-<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
-<!--            <ng-template #loggedOut>-->
-<!--              <button class="btn btn-secondary">-->
-<!--                Бронь-->
-<!--              </button>-->
-<!--            </ng-template>-->
-
-<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
-<!--            <ng-template #loggedOut>-->
-<!--              <button class="btn btn-secondary">-->
-<!--                Бронь-->
-<!--              </button>-->
-<!--            </ng-template>-->
-
-<!--            <td><button class="btn btn-primary" (click)="alertConfirmation()" *ngIf="'';else loggedOut">Гуляти</button></td>-->
-<!--            <ng-template #loggedOut>-->
-<!--              <button class="btn btn-secondary">-->
-<!--                Бронь-->
-<!--              </button>-->
-<!--            </ng-template>-->
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--        </table>-->
       </div>
     </div>
   </div>
